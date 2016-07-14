@@ -1,0 +1,249 @@
+{include file="Common/head.html"}
+    <!-- Page Header -->
+    <div class="page-header position-relative page-header-fixed">
+        <div class="header-title">
+            <h1>
+                系统信息概况 <!-- <small><i class="fa fa-angle-right"></i> 管理 </small> -->
+            </h1>
+        </div>
+        <!--Header Buttons-->
+        <div class="header-buttons">
+            <a class="sidebar-toggler" href="#">
+                <i class="fa fa-arrows-h"></i>
+            </a>
+            <a class="refresh" id="refresh-toggler" href="#">
+                <i class="glyphicon glyphicon-refresh"></i>
+            </a>
+            <a class="fullscreen" id="fullscreen-toggler" href="#">
+                <i class="glyphicon glyphicon-fullscreen"></i>
+            </a>
+        </div>
+        <!--Header Buttons End-->
+    </div>
+    <!-- /Page Header -->
+
+    <!-- Page Body -->
+    <div class="page-body">
+        <div class="row">
+            <div class="col-lg-12 col-sm-12 col-xs-12">
+                <div class="navalinkbox">
+                    {foreach $subcompanylist as $scp}
+                    {if $scp.subcompanyno==$subcompanyno}
+                    <a href="{$ANY.__APP__}?s=Index/dashboard&subcompanyno={$scp.subcompanyno}" class="item active">
+                        <h5 class="row-title before-darkorange"><i class="glyphicon glyphicon-plane darkorange"></i>{$scp.subcompanyname}</h5>
+                    </a>
+                    {else}
+                    <a href="{$ANY.__APP__}?s=Index/dashboard&subcompanyno={$scp.subcompanyno}" class="item">
+                        <h5 class="row-title before-sky"><i class="glyphicon glyphicon-plane sky"></i>{$scp.subcompanyname}</h5>
+                    </a>
+                    {/if}
+                    {/foreach}
+                </div>
+
+                {foreach $subcompany.department as $dpm}
+                <div class="widget">
+                    <div class="widget-header bordered-bottom bordered-sky">
+                        <span class="widget-caption"><b>{$dpm.departmentname}</b></span>
+                        <span class="widget-caption" style="color: #777; margin-left: 15px;">
+                            -监控服务器：{$dpm.mtserverip}:{$dpm.mtserverport} <font color="green">[在线]</font>
+                        </span>
+                        <div class="widget-buttons">
+                            <span class="darkorange">{'Y-m-d'|date}</span>
+                            <a href="#" data-toggle="collapse">
+                                <i class="fa fa-minus"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="widget-body no-padding">
+                        <div class="dataTables_wrapper form-inline">
+                            <table class="table table-bordered table-hover table-striped dataTable" id="searchable" role="grid" aria-describedby="searchable_info">
+                                <thead class="bordered-darkorange">
+                                    <tr role="row">
+                                        <th></th>
+                                        <th>钥匙柜</th>
+                                        <th>钥匙数量</th>
+                                        <th>在位数量</th>
+                                        <th>离位数量</th>
+                                        <th>错位数量</th>
+                                        <th>开关门日志</th>
+                                        <th>钥匙使用日志</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {if is_array($dpm.cabinetlist)&&!empty($dpm.cabinetlist)}
+                                    {foreach $dpm.cabinetlist as $cabinet}
+                                    <tr role="row" class="even">
+                                        <td>{$cabinet.cabinetno}</td>
+                                        <td>{$cabinet.cabinetname}</td>
+                                        <td>{$cabinet.keynum}</td>
+                                        <td><span class="sky">{$cabinet.keyinnum}</span></td>
+                                        <td><span class="gray">{$cabinet.keyoutnum}</span></td>
+                                        <td><span class="darkorange">{$cabinet.keyerrnum}</span></td>
+                                        <td>{$cabinet.cabinetdoorlognum}</td>
+                                        <td>{$cabinet.keyuselognum}</td>
+                                    </tr>
+                                    {/foreach}
+                                    {/if}
+                                </tbody>
+                            </table>
+                        </div>
+                        <div id="dpmlogchart_{$dpm.departmentno}" class="widget-overview" style="height: 370px; padding: 10px;"></div>
+                        <script type="text/javascript">
+                        $(function (){
+                            var dpmlogchart = echarts.init(document.getElementById('dpmlogchart_{$dpm.departmentno}'), 'shine');
+
+                            // 图表使用-------------------
+                            var option = {
+                                title : {
+                                    text: '钥匙使用日志',
+                                    subtext: '最近七天'
+                                },
+                                tooltip : {
+                                    trigger: 'axis'
+                                },
+                                legend: {
+                                    data:['领取日志','归还日志']
+                                },
+                                color:['#ed4e2a', '#11a9cc'],
+                                toolbox: {
+                                    show : true,
+                                    feature : {
+                                        dataZoom: {
+                                            show: true
+                                        },
+                                        mark : {
+                                            show: true
+                                        },
+                                        dataView : {
+                                            show: true,
+                                            readOnly: true
+                                        },
+                                        magicType : {
+                                            show: true,
+                                            type: ['line', 'bar']
+                                        },
+                                        restore : {
+                                            show: true
+                                        },
+                                        saveAsImage : {
+                                            show: true
+                                        }
+                                    }
+                                },
+                                calculable : true,
+                                xAxis : [
+                                    {
+                                        type : 'category',
+                                        boundaryGap : false,
+                                        data : []
+                                    }
+                                ],
+                                yAxis : [
+                                    {
+                                        type : 'value',
+                                        axisLabel : {
+                                            formatter: '{literal}{value}{/literal}'
+                                        }
+                                    }
+                                ],
+                                series : [
+                                    {
+                                        name:'领取日志',
+                                        type:'line',
+                                        data:[],
+                                        markPoint : {
+                                            data : [
+                                                {
+                                                    type : 'max',
+                                                    name: '最大值'
+                                                },
+                                                {
+                                                    type : 'min',
+                                                    name: '最小值'
+                                                }
+                                            ]
+                                        },
+                                        markLine : {
+                                            data : [
+                                                {
+                                                    type : 'average',
+                                                    name: '平均值'
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        name:'归还日志',
+                                        type:'line',
+                                        data:[],
+                                        markPoint : {
+                                            data : [
+                                                {
+                                                    type : 'max',
+                                                    name: '最大值'
+                                                },
+                                                {
+                                                    type : 'min',
+                                                    name: '最小值'
+                                                }
+                                            ]
+                                        },
+                                        markLine : {
+                                            data : [
+                                                {
+                                                    type : 'average',
+                                                    name : '平均值'
+                                                }
+                                            ]
+                                        }
+                                    }
+                                ]
+                            };
+
+                            //xAxis-日期
+                            {foreach $logdays as $day}
+                            option.xAxis[0].data.push('{$day}');
+                            {/foreach}
+
+                            //series-数据-keyoutlognum
+                            {foreach $dpm.keyoutlognum as $kn}
+                            option.series[0].data.push('{$kn}');
+                            {/foreach}
+                            //series-数据-keyinlognum
+                            {foreach $dpm.keyinlognum as $kn}
+                            option.series[1].data.push('{$kn}');
+                            {/foreach}
+
+                            dpmlogchart.setOption(option);
+                        })
+                        </script>
+                    </div>
+                </div>
+                {/foreach}
+            </div>
+        </div>
+    </div>
+
+    <style type="text/css">
+    .navalinkbox a.item {
+        margin-right: 7px;
+    }
+    .navalinkbox a.item:hover {
+        text-decoration: none;
+    }
+    .navalinkbox a.item h5 {
+        background: #F5F5F5;
+    }
+    .navalinkbox a.item:hover h5 {
+        font-weight: 700;
+        background: #FFFFFF;
+    }
+    .navalinkbox a.active h5 {
+        font-weight: 700;
+        background: #FFFFFF;
+    }
+    </style>
+
+    <script src="{$SERVER.HOST.PUBLIC_SERVER}plugin/echarts/echarts.min.js"></script>
+    <script src="{$SERVER.HOST.PUBLIC_SERVER}plugin/echarts/theme/shine.js"></script>
+{include file="Common/foot.html"}
