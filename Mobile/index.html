@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Index - weui project</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+	<meta name="keywords" content="">
+	<meta name="description" content="">
+	
+	<link href="./styles/weui-v0.4.0/weui.min.css" rel="stylesheet" />
+	<link href="./styles/weui-base.css" rel="stylesheet" type="text/css">
+	<link href="./styles/common.css" rel="stylesheet" type="text/css">
+
+	<link href="./assets/css/loading/progress-10/css/style.css" rel="stylesheet" type="text/css">
+
+	<link href="./assets/plugin/pagetrans/css/animations.css" rel="stylesheet" type="text/css">
+
+	<!--
+	<link href="./assets/plugin/pace-0.7.6/themes/pace-theme-center-circle.css" rel="stylesheet" />
+	<script src="./assets/plugin/pace-0.7.6/pace.min.js"></script>
+	-->
+
+	<script src="./assets/js/require-2.1.11.min.js" data-main="./js/index.js"></script>
+</head>
+
+<body>
+<div class="container">
+	<!-- loading animation -->
+	<div id="loadingbox" class="loadingbox">
+		<div id="caseRouge">
+			<div id="load">
+				<p>loading...</p>
+			</div>
+			<div id="top"></div>
+			<div id="left"></div>
+			<div id="right"></div>
+		</div>
+	</div>
+	<!-- /loading animation -->
+	<div class="weui_tab">
+		<div class="weui_tab_bd" ng-view></div>
+		<div class="weui_tabbar">
+			<a href="#/" class="weui_tabbar_item weui_bar_item_on">
+				<div class="weui_tabbar_icon">
+					<img src="./images/icon_nav_button.png" alt="">
+				</div>
+				<p class="weui_tabbar_label">主页</p>
+			</a>
+		</div>
+	</div>
+</div>
+</body>
+</html>
