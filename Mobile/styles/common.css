@@ -1,9 +1,54 @@
-/*weui-css补充*/
-.weui_media_title_link {
-	color: inherit;
+.contentbox {
+
+}
+.contentbox .contenter {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
 }
 
-/*common-css样式*/
-.userhead {
-	background: #F1F1F1;
+/********************************mainview********************************/
+.followus {
+    position: absolute;
+    display: block;
+    left: 50%;
+}
+/********************************mainview********************************/
+.mainbox {
+    width: 100%;
+    height: 100%;
+    background: url("../images/main_bg.gif");
+    background-size: 100% 100%;
+}
+.mainbox .followuslink {
+    position: absolute;
+    background: transparent;
+    cursor: pointer;
+}
+
+/********************************device********************************/
+@media (min-width: 414px) {
+    .mainbox .followuslink {
+        width: 50px;
+        height: 50px;
+        top: 70px;
+        left: 70px;
+    }
+}
+@media (min-width: 375px) {
+    .mainbox .followuslink {
+        width: 50px;
+        height: 50px;
+        top: 70px;
+        left: 70px;
+    }
+}
+@media (min-width: 320px) {
+    .mainbox .followuslink {
+        width: 50px;
+        height: 50px;
+        top: 70px;
+        left: 70px;
+    }
 }
