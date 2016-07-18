@@ -1,5 +1,5 @@
 //appjs
-define(["require", "angular", "angular-route", "angular-cookies"], function (require, angular){
+define(["require", "jquery", "angular", "angular-route", "angular-cookies"], function (require, jquery, angular){
     //注册angular.module-WebApp
 	var WebApp = angular.module("WebApp", ["ngRoute", "ngCookies"]);
 

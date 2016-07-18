@@ -2,9 +2,8 @@
 define([
 	"require",
 	"app",
-	"function",
 	"commoncontroller"
-	], function ($require, $app, $function){
+	], function ($require, $app){
 		var WebApp = $app.WebApp;
 
 		WebApp.controller('IndexController', ['$scope', '$controller', function ($scope, $controller){

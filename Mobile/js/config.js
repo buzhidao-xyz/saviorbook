@@ -6,8 +6,6 @@ requirejs.config({
 	//包名-路径
 	paths: {
 		"app": "app",
-		"boot": "boot",
-		"function": "function",
 		"jquery": "../assets/jquery/jquery-2.1.4.min",
 		"angular": "../assets/angular-1.4.2/angular.min",
 		"angular-route": "../assets/angular-1.4.2/angular-route.min",
@@ -30,7 +28,7 @@ requirejs.config({
 			deps: ["angular"],
 			exports: "angular-cookies"
 		}
-	},
+	}
 	//不缓存js
-	urlArgs: "bust=" +  (new Date()).getTime()
+	// urlArgs: "bust=" +  (new Date()).getTime()
 });
