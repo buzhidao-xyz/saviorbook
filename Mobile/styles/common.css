@@ -28,21 +28,12 @@
     margin-top: 6%;
     margin-right: 7%;
 }
-.followus .followus_qrcode_box {
+.followus .followus_qrcode {
     display: block;
     margin: 0 auto;
     margin-top: 21%;
     width: 73.28%;
     height: 71.64%;
-    background: url("../images/followus/followus_qrcode_bg.png");
-    background-size: 100% 100%;
-}
-.followus .followus_qrcode_box .followus_qrcode {
-    display: inline-block;
-    width: 93.3%;
-    height: 64%;
-    margin-top: 36%;
-    margin-left: 3.35%;
 }
 
 /********************************notice********************************/
