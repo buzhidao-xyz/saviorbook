@@ -40,7 +40,8 @@
 .followus .followus_qrcode_box .followus_qrcode {
     display: inline-block;
     width: 93.3%;
-    margin-top: 36.2%;
+    height: 64%;
+    margin-top: 36%;
     margin-left: 3.35%;
 }
 

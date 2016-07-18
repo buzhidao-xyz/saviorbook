@@ -87,13 +87,13 @@ define(["app", "api"], function ($app, $api){
 		$scope.showFollowus = function (e) {
 			var $this = $(e.target);
 			
-			$("#FollowUS").fadeIn();
+			$("#FollowUS").show();
 		}
 		//隐藏关注我们
 		$scope.hideFollowus = function (e) {
 			var $this = $(e.target);
 			
-			$("#FollowUS").fadeOut();
+			$("#FollowUS").hide();
 		}
 
 		return {
