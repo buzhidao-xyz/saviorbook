@@ -8,7 +8,6 @@ requirejs.config({
 		"app": "app",
 		"boot": "boot",
 		"function": "function",
-		"zepto": "../assets/js/zepto.min",
 		"jquery": "../assets/jquery/jquery-2.1.4.min",
 		"angular": "../assets/angular-1.4.2/angular.min",
 		"angular-route": "../assets/angular-1.4.2/angular-route.min",
