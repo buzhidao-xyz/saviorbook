@@ -65,6 +65,17 @@
     left: 44%;
     top: 42.5%;
 }
+.mainbox .startread {
+    display: block;
+    position: absolute;
+    background: transparent;
+    cursor: pointer;
+    background: rgba(0,0,0,0.7);
+    width: 22%;
+    height: 9%;
+    left: 44%;
+    top: 62.5%;
+}
 
 /********************************device********************************/
 @media (min-width: 320px) {
