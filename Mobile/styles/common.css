@@ -13,12 +13,12 @@
     display: none;
     position: absolute;
     width: 61.13%;
-    height: 50.11%;
+    height: 53%;
     background: url("../images/followus/followus_bg.png");
     background-size: 100% 100%;
     left: 50%;
     margin-left: -30.55%;
-    margin-top: 51%;
+    margin-top: 45%;
 }
 .followus .followus_close {
     display: block;
