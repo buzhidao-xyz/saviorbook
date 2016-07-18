@@ -16,7 +16,6 @@ define([
 					$(".followuslink").toggle();
 				}, 800);
 			}
-			$scope.toggleFollowUSLink();
 
 		}]);
 
