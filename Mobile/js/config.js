@@ -1,6 +1,8 @@
 requirejs.config({
 	//lib基础路径
 	baseUrl: "js",
+	//加载超时时间
+	waitSeconds: 30,
 	//包名-路径
 	paths: {
 		"app": "app",
