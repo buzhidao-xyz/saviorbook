@@ -83,6 +83,19 @@ define(["app", "api"], function ($app, $api){
 			}
 		}
 
+		//显示关注我们
+		$scope.showFollowus = function (e) {
+			var $this = $(e.target);
+			
+			$("#FollowUS").fadeIn();
+		}
+		//隐藏关注我们
+		$scope.hideFollowus = function (e) {
+			var $this = $(e.target);
+			
+			$("#FollowUS").fadeOut();
+		}
+
 		return {
 			alertShow: $scope.alertShow,
 			gsuserinfo: $scope.gsuserinfo,

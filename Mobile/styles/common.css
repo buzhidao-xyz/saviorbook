@@ -8,12 +8,53 @@
     overflow: hidden;
 }
 
-/********************************mainview********************************/
+/********************************followus********************************/
 .followus {
+    display: none;
     position: absolute;
-    display: block;
+    width: 61.13%;
+    height: 50.11%;
+    background: url("../images/followus/followus_bg.png");
+    background-size: 100% 100%;
     left: 50%;
+    margin-left: -30.55%;
+    margin-top: 52.5%;
 }
+.followus .followus_close {
+    display: block;
+    float: right;
+    clear: both;
+    width: 13.74%;
+    margin-top: 6%;
+    margin-right: 7%;
+}
+.followus .followus_qrcode_box {
+    display: block;
+    margin: 0 auto;
+    margin-top: 21%;
+    width: 73.28%;
+    height: 71.64%;
+    background: url("../images/followus/followus_qrcode_bg.png");
+    background-size: 100% 100%;
+}
+.followus .followus_qrcode_box .followus_qrcode {
+    display: inline-block;
+    width: 93.3%;
+    margin-top: 36.2%;
+    margin-left: 3.35%;
+}
+
+/********************************notice********************************/
+.notice {
+    position: absolute;
+    font-size: 81%;
+    bottom: 1.83%;
+    color: #FFFFFF;
+    left: 12.5%;
+    width: 75%;
+    text-align: center;
+}
+
 /********************************mainview********************************/
 .mainbox {
     width: 100%;
@@ -22,33 +63,35 @@
     background-size: 100% 100%;
 }
 .mainbox .followuslink {
+    display: block;
     position: absolute;
     background: transparent;
     cursor: pointer;
+    background: rgba(0,0,0,0);
+    width: 22%;
+    height: 9%;
+    left: 44%;
+    top: 42.5%;
 }
 
 /********************************device********************************/
-@media (min-width: 414px) {
-    .mainbox .followuslink {
-        width: 50px;
-        height: 50px;
-        top: 70px;
-        left: 70px;
+@media (min-width: 320px) {
+    .notice {
+        font-size: 75%;
     }
 }
 @media (min-width: 375px) {
-    .mainbox .followuslink {
-        width: 50px;
-        height: 50px;
-        top: 70px;
-        left: 70px;
+    .notice {
+        font-size: 81%;
     }
 }
-@media (min-width: 320px) {
-    .mainbox .followuslink {
-        width: 50px;
-        height: 50px;
-        top: 70px;
-        left: 70px;
+@media (min-width: 414px) {
+    .notice {
+        font-size: 86%;
+    }
+}
+@media (min-width: 435px) {
+    .notice {
+        font-size: 90%;
     }
 }
