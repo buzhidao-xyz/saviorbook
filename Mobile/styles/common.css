@@ -101,23 +101,19 @@
 .bookbox ul.book_links {
     display: block;
     margin: 0 auto;
-    margin-top: 60%;
+    margin-top: 58%;
     width: 75%;
 }
 .bookbox ul.book_links li {
     display: block;
     float: left;
     width: 30%;
+    overflow: hidden;
 }
-.bookbox ul.book_links li a.section {
+.bookbox ul.book_links li img.section_img {
     display: block;
     width: 100%;
-    height: 110px;
-    background: url("../images/book/book_link.png");
-    background-size: 300% 200%;
-}
-.bookbox ul.book_links li a.section_zrzh {
-    background-position: 0 0;
+    height: 100%;
 }
 
 /********************************device********************************/
