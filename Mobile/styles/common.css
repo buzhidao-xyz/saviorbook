@@ -84,6 +84,7 @@
     left: 35%;
     top: 83.5%;
 }
+
 /********************************book********************************/
 .bookbox {
     width: 100%;
@@ -101,14 +102,15 @@
 .bookbox ul.book_links {
     display: block;
     margin: 0 auto;
-    margin-top: 58%;
+    margin-top: 57.5%;
     width: 75%;
 }
 .bookbox ul.book_links li {
     display: block;
     float: left;
-    width: 30%;
+    width: 26%;
     overflow: hidden;
+    margin: 0 3.66%;
 }
 .bookbox ul.book_links li img.section_img {
     display: block;
