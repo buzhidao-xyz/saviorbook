@@ -1,7 +1,7 @@
 //appjs
-define(["require", "jquery", "angular", "angular-route", "angular-cookies"], function (require, jquery, angular){
+define(["require", "jquery", "angular", "angular-route"], function (require, jquery, angular){
     //注册angular.module-WebApp
-	var WebApp = angular.module("WebApp", ["ngRoute", "ngCookies"]);
+	var WebApp = angular.module("WebApp", ["ngRoute"]);
 
 	//配置angularmodule
 	WebApp.config(['$routeProvider', function($routeProvider) {
@@ -9,11 +9,11 @@ define(["require", "jquery", "angular", "angular-route", "angular-cookies"], fun
 		$routeProvider
 		.when('/', {
 			templateUrl: 'views/main.html',
-			controller: 'IndexController'
+			controller: 'BookController'
 		})
-		.when('/arcprofile', {
-			templateUrl: 'views/arcprofile.html',
-			controller: 'ArticleController'
+		.when('/book', {
+			templateUrl: 'views/book.html',
+			controller: 'BookController'
 		})
 		.otherwise({
 			redirectTo: '/'
