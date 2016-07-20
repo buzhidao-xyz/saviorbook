@@ -100,10 +100,12 @@
     margin-left: -20.2%;
 }
 .bookbox ul.book_links {
+    position: absolute;
     display: block;
     margin: 0 auto;
-    margin-top: 57%;
     width: 75%;
+    bottom: 25.5%;
+    left: 12.5%;
 }
 .bookbox ul.book_links li {
     display: block;

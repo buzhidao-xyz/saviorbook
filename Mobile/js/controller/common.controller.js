@@ -63,6 +63,13 @@ define(["app", "api"], function ($app, $api){
 			$("#FollowUS").hide();
 		}
 
+		//收藏
+		$scope.showFav = function (e) {
+			var $this = $(e.target);
+
+			
+		}
+
 		return {
 			alertShow: $scope.alertShow,
 			apiRequestData: $scope.apiRequestData,

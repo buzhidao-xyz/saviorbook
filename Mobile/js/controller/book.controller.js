@@ -19,8 +19,9 @@ define(["require", "app", "commoncontroller"], function ($require, $app){
 				}, 800);
 			}
 
-			//获取全部
-			$scope.getArticleList = function (){
+			//显示章节列表
+			$scope.showBookChapter = function (e){
+				alert(1);
 				//service交互 - getArticleList
 				$BookService.getArticleList();
 				//监听事件 - getArticleList.success
