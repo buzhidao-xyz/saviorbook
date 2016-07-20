@@ -63,11 +63,17 @@ define(["app", "api"], function ($app, $api){
 			$("#FollowUS").hide();
 		}
 
-		//收藏
+		//显示收藏
 		$scope.showFav = function (e) {
 			var $this = $(e.target);
 
-			
+			$("#FavBox").show();
+		}
+		//隐藏收藏
+		$scope.hideFav = function (e) {
+			var $this = $(e.target);
+
+			$("#FavBox").hide();
 		}
 
 		return {
