@@ -21,20 +21,20 @@ define(["require", "app", "commoncontroller"], function ($require, $app){
 
 			//显示章节列表
 			$scope.showBookChapter = function (e){
-				alert(1);
-				//service交互 - getArticleList
-				$BookService.getArticleList();
-				//监听事件 - getArticleList.success
-				$scope.$on('getArticleList.success', function (event, d){
-					$scope.$articlelist = $BookService.articlelist;
+				$("#ChapterBox").removeClass('pt-page-moveToTop').addClass('pt-page-moveFromTop').show();
+
+				//service交互 - getChapterList
+				$BookService.getChapterList();
+				//监听事件 - getChapterList.success
+				$scope.$on('getChapterList.success', function (event, d){
+					$scope.$chapterlist = $BookService.chapterlist;
 				});
 			};
 
 			//页面逻辑
 			var path = $route.current.originalPath;
 			switch (path) {
-				case '/arclist':
-					$scope.getArticleList();
+				case '/book':
 					break;
 				default:
 					break;

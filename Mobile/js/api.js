@@ -1,14 +1,10 @@
 define([], function (){
     return {
         host: "http://localhost/work/saviorbook/",
-        article: {
-            articlelist: {
+        book: {
+            chapterlist: {
                 m: "get",
-                u: "Api/Json/articlelist.json"
-            },
-            articleprofile: {
-            	m: "get",
-                u: "Api/Json/articleprofile.json"
+                u: "Api/Json/chapterlist.json"
             }
         }
     }

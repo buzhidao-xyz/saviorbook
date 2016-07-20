@@ -141,6 +141,48 @@
     margin-right: 7%;
 }
 
+/********************************book********************************/
+.chapterbox {
+    /*display: none;*/
+    width: 100%;
+    height: 100%;
+    background: rgba(35, 24, 21, 0.8);
+    background-size: 100% 100%;
+    z-index: 10;
+    padding: 0 5%;
+}
+.chapterbox .chapterbox_close {
+    display: block;
+    float: right;
+    width: 8%;
+    margin-top: 9%;
+    margin-right: 10%;
+}
+.chapterbox img.chapterbox_fav {
+    display: block;
+    float: left;
+    width: 17.33%;
+    margin-left: 2%;
+    margin-top: 12%;
+}
+.chapterbox img.chapterbox_bust {
+    display: block;
+    float: left;
+    width: 51.8%;
+    margin-left: 3%;
+    margin-top: 9%;
+}
+.chapterbox ul.chapterlist {
+    display: block;
+    clear: both;
+    overflow-x: hidden;
+    overflow-y: auto;
+    width: auto;
+    height: 100px;
+    margin: 0 0;
+    background: #FFFFFF;
+    margin-top: -10px;
+}
 
 /********************************device********************************/
 @media (min-width: 320px) {

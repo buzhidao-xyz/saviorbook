@@ -76,6 +76,13 @@ define(["app", "api"], function ($app, $api){
 			$("#FavBox").hide();
 		}
 
+		//隐藏章节
+		$scope.hideChapterbox = function (e) {
+			var $this = $(e.target);
+
+			$("#ChapterBox").removeClass('pt-page-moveFromTop').addClass('pt-page-moveToTop');
+		}
+
 		return {
 			alertShow: $scope.alertShow,
 			apiRequestData: $scope.apiRequestData,

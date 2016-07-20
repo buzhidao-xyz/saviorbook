@@ -4,26 +4,18 @@ requirejs(["app", "api"], function ($app, $api){
 	WebApp.service('BookService', ['$rootScope', '$http', function ($rootScope, $http){
 		var Service = {
 			//获取全部文章
-			articlelist: [],
-			getArticleList: function (params, data){
-				var url = $api.host + $api.article.articlelist.u;
+			chapterlist: [],
+			getChapterList: function (params, data){
+				var url = $api.host + $api.book.chapterlist.u;
 				$http({
-					method: $api.article.articlelist.m,
+					method: $api.book.chapterlist.m,
 					url: url,
 					params: params,
 					data: data
 				}).success(function (data, status){
-					Service.articlelist = [];
-					for (index in data.articlelist) {
-						Service.articlelist.push({
-							"id": data.articlelist[index].id,
-							"title": data.articlelist[index].title,
-							"content": data.articlelist[index].content,
-							"publishtime": data.articlelist[index].publishtime,
-						});
-					}
+					Service.chapterlist = [];
 
-					$rootScope.$broadcast('getArticleList.success');
+					$rootScope.$broadcast('getChapterList.success');
 				}).error(function (data, status){
 					$rootScope.$broadcast('apiRequest.failed');
 				});
