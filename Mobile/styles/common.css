@@ -237,6 +237,20 @@
     width: 73.28%;
     height: 71.64%;
 }
+.aboutus .aboutus_text_box {
+    display: block;
+    position: absolute;
+    background: rgba(0,0,0,0);
+    width: 64%;
+    height: 10%;
+    bottom: 21%;
+    left: 50%;
+    margin-left: -32%;
+    overflow: hidden;
+}
+.aboutus .aboutus_text_box img.aboutus_text {
+    width: 100%;
+}
 
 /********************************device********************************/
 @media (min-width: 320px) {

@@ -31,10 +31,18 @@ define(["require", "app", "commoncontroller"], function ($require, $app){
 				});
 			};
 
+			//aboutus-text
+			$scope.aboutusTextScroll = function () {
+				
+			}
+
 			//页面逻辑
 			var path = $route.current.originalPath;
 			switch (path) {
 				case '/book':
+					break;
+				case '/aboutus':
+					$scope.aboutusTextScroll();
 					break;
 				default:
 					break;
