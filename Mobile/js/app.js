@@ -15,6 +15,14 @@ define(["require", "jquery", "angular", "angular-route"], function (require, jqu
 			templateUrl: 'views/book.html',
 			controller: 'BookController'
 		})
+		.when('/chapter/chapterid/:chapterid', {
+			templateUrl: 'views/chapter.html',
+			controller: 'BookController'
+		})
+		.when('/aboutus', {
+			templateUrl: 'views/aboutus.html',
+			controller: 'BookController'
+		})
 		.otherwise({
 			redirectTo: '/'
 		});
