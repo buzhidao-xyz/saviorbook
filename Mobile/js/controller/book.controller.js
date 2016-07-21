@@ -31,6 +31,11 @@ define(["require", "app", "commoncontroller"], function ($require, $app){
 				});
 			};
 
+			//章节tab切换
+			$scope.showChapterContent = function (e) {
+				var $this = $(e.target);
+			}
+
 			//aboutus-text
 			$scope.aboutusTextScroll = function () {
 				$.fn.myScroll = function(options){

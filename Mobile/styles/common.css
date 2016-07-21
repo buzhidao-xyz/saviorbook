@@ -275,19 +275,23 @@
     background: url("../images/chapter/chapter_bg.png");
     background-size: 100% 100%;
 }
-.chaptercontainer img.icon_section {
+.chaptercontainer a.icon_section {
     position: absolute;
-    width: 37.13%;
+    display: block;
+    width: 37%;
+    height: 6%;
     bottom: 71%;
     left: 50%;
     margin-left: -18%;
+    background: rgba(0,0,0,0);
 }
 .chaptercontainer img.icon_home {
     position: absolute;
-    width: 26.93%;
-    bottom: 10%;
+    width: 37%;
+    height: 13%;
+    bottom: 6%;
     left: 50%;
-    margin-left: -13.465%;
+    margin-left: -18.5%;
 }
 .chaptercontainer .notice {
     position: absolute;
@@ -297,6 +301,61 @@
     left: 13.5%;
     width: 73%;
     text-align: center;
+}
+.chaptercontent {
+    position: absolute;
+    top: 30%;
+}
+.chaptercontent .icon_chapter_title {
+    display: block;
+    width: 37.8%;
+    margin: 0 auto;
+}
+.chaptercontent .contentbox {
+    display: block;
+    width: 75%;
+    margin: 0 auto;
+    margin-left: 13%;
+    margin-top: 2%;
+    background: rgba(0,0,0,0);
+}
+.content_tab {
+    display: block;
+    overflow: hidden;
+}
+.content_tab .content_tab_item {
+    display: block;
+    float: left;
+    width: 33%;
+    overflow: hidden;
+}
+.content_tab .content_tab_item img.content_tab_item_img {
+    display: none;
+    width: 100%;
+}
+.content_tab .content_tab_item img.content_tab_item_img.show {
+    display: block;
+}
+.content_body {
+    overflow: hidden;
+    margin-top: 5px;
+    background: rgba(0,0,0,0);
+}
+.content_body p {
+
+}
+.content_body .content_body_item {
+    display: none;
+    position: absolute;
+    width: 75%;
+    height: 277%;
+    font-size: 12px;
+    letter-spacing: 1px;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+.content_body .content_body_item.show {
+    display: block;
 }
 
 /********************************device********************************/
