@@ -215,10 +215,10 @@
 .aboutus .notice {
     position: absolute;
     font-size: 81%;
-    bottom: 1.5%;
+    bottom: 1.35%;
     color: #515151;
-    left: 12.5%;
-    width: 75%;
+    left: 13.5%;
+    width: 73%;
     text-align: center;
 }
 .aboutus .followus {
@@ -247,6 +247,18 @@
     left: 50%;
     margin-left: -32%;
     overflow: hidden;
+}
+.aboutus .aboutus_text_box ul {
+    display: block;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+}
+.aboutus .aboutus_text_box ul li {
+    display: block;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
 }
 .aboutus .aboutus_text_box img.aboutus_text {
     width: 100%;
