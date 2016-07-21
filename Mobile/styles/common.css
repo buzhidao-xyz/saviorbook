@@ -140,7 +140,7 @@
     margin-right: 7%;
 }
 
-/********************************book********************************/
+/********************************book-chapterbox********************************/
 .chapterbox {
     display: none;
     width: 100%;
@@ -196,6 +196,46 @@
 .chapterbox ul.chapterlist li img.icon {
     width: 100%;
     display: block;
+}
+
+/********************************aboutus********************************/
+.aboutus {
+    width: 100%;
+    height: 100%;
+    background: url("../images/aboutus/aboutus_bg.png");
+    background-size: 100% 100%;
+}
+.aboutus img.icon_home {
+    position: absolute;
+    width: 26.93%;
+    bottom: 10%;
+    left: 50%;
+    margin-left: -13.465%;
+}
+.aboutus .notice {
+    position: absolute;
+    font-size: 81%;
+    bottom: 1.5%;
+    color: #515151;
+    left: 12.5%;
+    width: 75%;
+    text-align: center;
+}
+.aboutus .followus {
+    display: block;
+    position: absolute;
+    width: 57.5%;
+    background-size: 100% 100%;
+    left: 50%;
+    margin-left: -28.75%;
+    margin-top: 27%;
+    background: transparent;
+}
+.aboutus .followus .followus_qrcode {
+    display: block;
+    margin: 0 auto;
+    width: 73.28%;
+    height: 71.64%;
 }
 
 /********************************device********************************/
