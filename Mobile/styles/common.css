@@ -15,6 +15,26 @@
     cursor: pointer;
     width: 14.73%;
 }
+.favbox {
+    display: none;
+    position: absolute;
+    width: 61.13%;
+    height: 30.7%;
+    bottom: 37%;
+    left: 50%;
+    margin-left: -30.55%;
+    z-index: 1;
+    background: url("../images/book/book_fav_bg.png");
+    background-size: 100% 100%;
+}
+.favbox .favbox_close {
+    display: block;
+    float: right;
+    clear: both;
+    width: 12.5%;
+    margin-top: 6%;
+    margin-right: 7%;
+}
 
 /********************************followus********************************/
 .followus {
@@ -119,26 +139,6 @@
     width: 100%;
     height: 100%;
 }
-.bookbox .favbox {
-    display: none;
-    position: absolute;
-    width: 61.13%;
-    height: 30.7%;
-    bottom: 37%;
-    left: 50%;
-    margin-left: -30.55%;
-    z-index: 1;
-    background: url("../images/book/book_fav_bg.png");
-    background-size: 100% 100%;
-}
-.bookbox .favbox .favbox_close {
-    display: block;
-    float: right;
-    clear: both;
-    width: 12.5%;
-    margin-top: 6%;
-    margin-right: 7%;
-}
 
 /********************************book-chapterbox********************************/
 .chapterbox {
@@ -196,6 +196,10 @@
 .chapterbox ul.chapterlist li img.icon {
     width: 100%;
     display: block;
+}
+.chapterbox ul.chapterlist li img.icon_trans {
+    position: absolute;
+    z-index: 99;
 }
 
 /********************************aboutus********************************/
@@ -262,6 +266,37 @@
 }
 .aboutus .aboutus_text_box img.aboutus_text {
     width: 100%;
+}
+
+/********************************chapter********************************/
+.chaptercontainer {
+    width: 100%;
+    height: 100%;
+    background: url("../images/chapter/chapter_bg.png");
+    background-size: 100% 100%;
+}
+.chaptercontainer img.icon_section {
+    position: absolute;
+    width: 37.13%;
+    bottom: 71%;
+    left: 50%;
+    margin-left: -18%;
+}
+.chaptercontainer img.icon_home {
+    position: absolute;
+    width: 26.93%;
+    bottom: 10%;
+    left: 50%;
+    margin-left: -13.465%;
+}
+.chaptercontainer .notice {
+    position: absolute;
+    font-size: 81%;
+    bottom: 1.5%;
+    color: #515151;
+    left: 13.5%;
+    width: 73%;
+    text-align: center;
 }
 
 /********************************device********************************/
