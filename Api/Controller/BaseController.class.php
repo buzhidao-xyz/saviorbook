@@ -168,6 +168,8 @@ class BaseController extends Controller
             'data'  => $data
         );
 
+        header("Access-Control-Allow-Origin: *");
+
         $type = 'json';
         switch ($type) {
             case 'json':

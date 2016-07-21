@@ -4,7 +4,7 @@ define([], function (){
         book: {
             chapterlist: {
                 m: "get",
-                u: "Api/Json/chapterlist.json"
+                u: "Api/index.php?s=Book/chapterlist"
             }
         }
     }
