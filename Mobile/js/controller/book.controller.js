@@ -10,17 +10,15 @@ define(["require", "app", "commoncontroller"], function ($require, $app){
 		'$location',
 		'BookService',
 		function ($scope, $controller, $route, $routeParams, $location, $BookService){
+			$scope.bookid = 0;
+
 			var CommonController = $controller('CommonController', {$scope: $scope});
 
-			//显示-隐藏followuslink
-			$scope.toggleFollowUSLink = function () {
-				setInterval(function () {
-					$(".followuslink").toggle();
-				}, 800);
-			}
+			//book-显示章节列表
+			$scope.showBookChapter = function (e, bookid){
+				var bookid = bookid ? bookid : $scope.bookid;
+				if (!bookid) return false;
 
-			//显示章节列表
-			$scope.showBookChapter = function (e){
 				$("#ChapterBox").removeClass('pt-page-moveToTop').addClass('pt-page-moveFromTop').show();
 
 				//service交互 - getChapterList
@@ -31,12 +29,24 @@ define(["require", "app", "commoncontroller"], function ($require, $app){
 				});
 			};
 
-			//章节tab切换
+			//chapter-章节tab切换
 			$scope.showChapterContent = function (e) {
 				var $this = $(e.target);
+				var $that = $this.parent();
+				var index = $that.index();
+
+				//tab选中更新
+				$("#ContentBox").find("img.content_tab_item_img_hover").removeClass('show');
+				$("#ContentBox").find("img.content_tab_item_img").addClass('show');
+				$that.find("img.content_tab_item_img").removeClass('show');
+				$that.find("img.content_tab_item_img_hover").addClass('show');
+
+				//content对应显示
+				$("#ContentBox").find(".content_body_item").removeClass('show');
+				$("#ContentBox").find(".content_body_item:eq("+index+")").addClass('show');
 			}
 
-			//aboutus-text
+			//aboutus-textscroll
 			$scope.aboutusTextScroll = function () {
 				$.fn.myScroll = function(options){
 					var defaults = {
@@ -95,7 +105,11 @@ define(["require", "app", "commoncontroller"], function ($require, $app){
 			switch (path) {
 				case '/book':
 					break;
-				case '/chapter/chapterid/:chapterid':
+				case '/book/bookid/:bookid':
+					$scope.bookid = $routeParams.bookid;
+					$scope.showBookChapter();
+					break;
+				case '/chapter/bookid/:bookid/chapterid/:chapterid':
 					break;
 				case '/aboutus':
 					$scope.aboutusTextScroll();

@@ -15,7 +15,11 @@ define(["require", "jquery", "angular", "angular-route"], function (require, jqu
 			templateUrl: 'views/book.html',
 			controller: 'BookController'
 		})
-		.when('/chapter/chapterid/:chapterid', {
+		.when('/book/bookid/:bookid', {
+			templateUrl: 'views/book.html',
+			controller: 'BookController'
+		})
+		.when('/chapter/bookid/:bookid/chapterid/:chapterid', {
 			templateUrl: 'views/chapter.html',
 			controller: 'BookController'
 		})
