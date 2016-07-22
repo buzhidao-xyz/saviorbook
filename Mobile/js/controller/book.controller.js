@@ -49,13 +49,14 @@ define(["require", "app", "commoncontroller"], function ($require, $app){
 			//aboutus-textscroll
 			$scope.aboutusTextScroll = function () {
 				$.fn.myScroll = function(options){
+					var flag = 1;
 					var defaults = {
 						speed: 40,
 						rowHeight: 24
 					};
 				
 					var opts = $.extend({}, defaults, options),intId = [];
-				
+
 					function marquee(obj, step){
 						obj.find("ul").animate({
 							marginTop: '-=1'
@@ -77,22 +78,26 @@ define(["require", "app", "commoncontroller"], function ($require, $app){
 							}
 						}, speed);
 
-						_this.hover(function(){
-							clearInterval(intId[i]);
-						},function(){
-							intId[i] = setInterval(function(){
-								if(_this.find("ul").height()<=_this.height()){
-									clearInterval(intId[i]);
-								}else{
-									marquee(_this, sh);
-								}
-							}, speed);
+						_this.click(function(){
+							if (flag) {
+								flag = 0;
+								clearInterval(intId[i]);
+							} else {
+								flag = 1;
+								intId[i] = setInterval(function(){
+									if(_this.find("ul").height()<=_this.height()){
+										clearInterval(intId[i]);
+									}else{
+										marquee(_this, sh);
+									}
+								}, speed);
+							}
 						});
 					});
 				}
 
 				setTimeout(function () {
-					var liHeight = parseInt($('.aboutus_text_box').find("ul li").css("height"));
+					var liHeight = parseInt($('.aboutus_text_box').find("img.aboutus_text:eq(0)").css("height"));
 					$('.aboutus_text_box').myScroll({
 						speed: 50, //数值越大，速度越慢
 						rowHeight: liHeight //li的高度

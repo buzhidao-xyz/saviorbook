@@ -265,6 +265,7 @@
     padding: 0;
 }
 .aboutus .aboutus_text_box img.aboutus_text {
+    display: inherit;
     width: 100%;
 }
 
