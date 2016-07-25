@@ -16,6 +16,9 @@ class IndexController extends CommonController
     public function __construct()
     {
         parent::__construct();
+
+        $this->booklist = D('Book')->getBook();
+        $this->assign('booklist', $this->booklist);
     }
 
     //系统主框架页面
@@ -30,6 +33,12 @@ class IndexController extends CommonController
         $this->assign('default_groupid', $this->_default_groupid);
         //默认节点菜单
         $this->assign('default_nodeid', $this->_default_nodeid);
+        $this->display();
+    }
+
+    //控制面板
+    public function dashboard()
+    {
         $this->display();
     }
 }

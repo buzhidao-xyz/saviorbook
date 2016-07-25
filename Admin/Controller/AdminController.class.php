@@ -85,64 +85,28 @@ class AdminController extends BaseController
 
         //检查验证码
         // $this->_CKVCode();
-        
-        $ip = get_client_ip();
 
         //查询管理员信息
         $managerInfo = D('Manager')->getManagerByAccount($account);
 
         //逻辑判断 如果登录失败
-        if (!is_array($managerInfo) || empty($managerInfo)
-         || !isset($managerInfo['password']) || !isset($managerInfo['mkey'])
-         || $managerInfo['status'] == 0
-         || D('Manager')->passwordEncrypt($password, $managerInfo['mkey']) != $managerInfo['password']) {
+        if (!is_array($managerInfo) || empty($managerInfo) || !isset($managerInfo['password']) || $managerInfo['status'] == 0
+         || D('Manager')->passwordEncrypt($password) != $managerInfo['password']) {
             $managerid = isset($managerInfo['managerid']) ? $managerInfo['managerid'] : 0;
-            //记录登录日志
-            D('Manager')->saveManagerLoginLog(array(
-                'managerid' => $managerid,
-                'logintime' => mkDateTime(),
-                'loginip'   => $ip,
-                'result'    => $this->_loginlog_result['FAILED'],
-                'browser'   => $_SERVER['HTTP_USER_AGENT'],
-                'resume'    => ''
-            ));
 
             $this->ajaxReturn(1, L('LOGIN_ERROR'));
         }
 
         //登录成功
         $managerid = $managerInfo['managerid'];
-        
-        //更新管理员账户信息
-        D('Manager')->saveManager($managerid, array(
-            'lastlogintime' => mkDateTime(),
-            'lastloginip'   => $ip,
-            'logincount'    => array('exp', 'logincount+1'),
-            'updatetime'    => mkDateTime(),
-        ));
-        
-        //记录登录日志
-        D('Manager')->saveManagerLoginLog(array(
-            'managerid' => $managerid,
-            'logintime' => mkDateTime(),
-            'loginip'   => $ip,
-            'result'    => $this->_loginlog_result['SUCCESS'],
-            'browser'   => $_SERVER['HTTP_USER_AGENT'],
-            'resume'    => ''
-        ));
-
         //获取权限菜单信息
-        $access = D('Manager')->getManagerAccess($managerInfo['super'], $managerInfo['roleid']);
+        $access = D('Manager')->getManagerAccess();
 
         //session缓存管理员信息
         session('managerinfo', array(
             'managerid'     => $managerid,
             'account'       => $managerInfo['account'],
             'super'         => $managerInfo['super'],
-            'roleid'        => $managerInfo['roleid'],
-            'lastlogintime' => $managerInfo['lastlogintime'],
-            'lastloginip'   => $managerInfo['lastloginip'],
-            'logincount'    => $managerInfo['logincount'],
             'access'        => $access,
         ));
 

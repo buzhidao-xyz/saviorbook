@@ -4,10 +4,9 @@
         <div class="navbar-container">
             <!-- Navbar Barnd -->
             <div class="navbar-header pull-left">
-                <a href="{$ANY.__APP__}?s=Index/index" class="navbar-brand">
-                    <small>
-                        <img src="{$SERVER.HOST.IMAGE_SERVER}Themes/Beyond/Assets/img/logo.png" alt="" class="img-responsive" style="width: 110px; height: auto; padding-top: 5px;" />
-                    </small>
+                <a href="{$ANY.__APP__}?s=Index/index" class="navbar-brand text-center" style="margin-top: 10px;">
+                    <p>Saviorbook</p>
+                    <p>口袋应急宝典</p>
                 </a>
             </div>
             <!-- /Navbar Barnd -->
@@ -18,7 +17,7 @@
             <!-- /Sidebar Collapse -->
             <!-- headernav -->
             <div id="headernav" class="headernav">
-                <div class="headertitle">智能钥匙柜管理系统</div>
+                <div class="headertitle"></div>
                 <ul class="list-unstyled list-inline">
                     {if is_array($managerinfo.access)&&!empty($managerinfo.access)}
                     {foreach $managerinfo.access as $group}

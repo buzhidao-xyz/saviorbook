@@ -15,6 +15,8 @@ class CommonController extends BaseController
     //管理员登录信息 session存储
     protected $managerinfo;
 
+    protected $booklist = array();
+
     public function __construct()
     {
         parent::__construct();

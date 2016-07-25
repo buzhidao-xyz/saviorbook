@@ -56,9 +56,11 @@ $("form[name=ajax-form]").submit(function() {
 
 //AJAX请求 启用/禁用、显示/隐藏、删除
 $("a.btn-ajax, a.btn-ajax-enable, a.btn-ajax-delete").on('click', function (){
-    $.post($(this).attr('href'), {}, function (data){
-        ajaxCallback(data);
-    }, 'json');
+    if (confirm('确定要删除吗？')) {
+        $.post($(this).attr('href'), {}, function (data){
+            ajaxCallback(data);
+        }, 'json');
+    }
 
     return false;
 });

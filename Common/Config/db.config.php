@@ -10,19 +10,19 @@ $database = array(
 	//默认配置
 	'DEFAULT_CONFIG' => array(
 		// 数据库类型
-		'DB_TYPE'            => 'sqlsrv',
+		'DB_TYPE'            => 'mysql',
 		// 数据库HOST
 		'DB_HOST'            => '127.0.0.1',
 		// 数据库端口
-		'DB_PORT'            => 1433,
+		'DB_PORT'            => 3306,
 		// 数据库名
-		'DB_NAME'            => 'keycabinet',
+		'DB_NAME'            => 'saviorbook',
 		// 用户名
-		'DB_USER'            => 'sa',
+		'DB_USER'            => 'root',
 		// 密码
 		'DB_PWD'             => '123456',
 		// 表前缀
-		'DB_PREFIX'          => 'kc_',
+		'DB_PREFIX'          => 'svk_',
 		// 字符集
 		'DB_CHARSET'         => 'utf8',
 		// 字段名小写
