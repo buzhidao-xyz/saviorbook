@@ -14,39 +14,46 @@
     bottom: 0;
     cursor: pointer;
     width: 14.73%;
+    z-index: 9;
 }
 .favbox {
     display: none;
     position: absolute;
-    width: 61.13%;
-    height: 30.7%;
-    bottom: 37%;
+    width: 61%;
+    top: 30%;
     left: 50%;
-    margin-left: -30.55%;
+    margin-left: -30.5%;
     z-index: 1;
-    background: url("../images/book/book_fav_bg.png");
-    background-size: 100% 100%;
+}
+.favbox .favbox_text {
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: auto;
+    z-index: 1;
 }
 .favbox .favbox_close {
     display: block;
+    position: absolute;
     float: right;
     clear: both;
     width: 12.5%;
     margin-top: 6%;
-    margin-right: 7%;
+    margin-left: 80.5%;
+    z-index: 2;
 }
 
 /********************************followus********************************/
 .followus {
     display: none;
     position: absolute;
-    width: 61.13%;
-    height: 53%;
+    width: 62%;
+    height: 55%;
     background: url("../images/followus/followus_bg.png");
     background-size: 100% 100%;
     left: 50%;
-    margin-left: -30.55%;
-    margin-top: 40%;
+    margin-left: -31%;
+    margin-top: 35%;
     z-index: 99;
 }
 .followus .followus_close {
@@ -62,18 +69,17 @@
     margin: 0 auto;
     margin-top: 21%;
     width: 73.28%;
-    height: 71.64%;
+    height: 73%;
 }
 
 /********************************notice********************************/
 .notice {
     position: absolute;
-    font-size: 81%;
+    display: block;
+    width: 100%;
+    left: 50%;
+    margin-left: -50%;
     bottom: 1.5%;
-    color: #FFFFFF;
-    left: 12.5%;
-    width: 75%;
-    text-align: center;
 }
 
 /********************************mainview********************************/
@@ -84,36 +90,27 @@
     background-size: 100% auto;
     background-position: center center;
 }
-.mainbox img.main_bg {
-    display: block;
-    position: relative;
-    /*width: 100%;*/
-    height: 100%;
-    margin: 0 auto;
-    vertical-align: middle;
-}
 .mainbox .followuslink {
     display: block;
     position: absolute;
     background: transparent;
     cursor: pointer;
     background: rgba(0,0,0,0);
-    width: 22%;
-    height: 9%;
-    left: 44%;
-    top: 42.5%;
+    width: 23%;
+    height: 11%;
+    left: 43%;
+    top: 40%;
     z-index: 11;
 }
-.mainbox .startread {
+.mainbox img.startread {
     display: block;
     position: absolute;
     background: transparent;
     cursor: pointer;
-    background: rgba(0,0,0,0);
-    width: 30%;
-    height: 7.5%;
-    left: 35%;
-    top: 83.5%;
+    width: 100%;
+    left: 50%;
+    margin-left: -50%;
+    bottom: 7%;
     z-index: 11;
 }
 
@@ -122,8 +119,15 @@
     width: 100%;
     height: 100%;
     background: url("../images/book/book_bg.png") no-repeat;
+    background-size: 100% 100%;
+    background-position: center center;
+}
+.bookbox .bookbox_content_bg {
+    width: 100%;
+    height: 100%;
+    background: url("../images/book/book_content_bg.png") no-repeat;
     background-size: 100% auto;
-    background-position: center 10%;
+    background-position: center center;
 }
 .bookbox img.icon_aboutus {
     position: absolute;
@@ -137,7 +141,7 @@
     display: block;
     margin: 0 auto;
     width: 75%;
-    bottom: 25%;
+    bottom: 23%;
     left: 12.5%;
 }
 .bookbox ul.book_links li {
@@ -220,28 +224,19 @@
     width: 100%;
     height: 100%;
     background: url("../images/aboutus/aboutus_bg.png");
-    background-size: 100% 100%;
+    background-size: 100% 115%;
+    background-position: center center;
 }
-.aboutus img.icon_home {
+.aboutus img.aboutus_logo {
     position: absolute;
-    width: 26.93%;
-    bottom: 10%;
-    left: 50%;
-    margin-left: -13.465%;
-}
-.aboutus .notice {
-    position: absolute;
-    font-size: 81%;
-    bottom: 1.35%;
-    color: #515151;
-    left: 13.5%;
-    width: 73%;
-    text-align: center;
+    width: 100%;
+    top: 3%;
 }
 .aboutus .followus {
     display: block;
     position: absolute;
     width: 57.5%;
+    height: 53%;
     background-size: 100% 100%;
     left: 50%;
     margin-left: -28.75%;
@@ -251,18 +246,31 @@
 .aboutus .followus .followus_qrcode {
     display: block;
     margin: 0 auto;
-    width: 73.28%;
-    height: 71.64%;
+    width: 73%;
+    height: 70%;
+}
+.aboutus .aboutus_text_s {
+    display: block;
+    position: absolute;
+    width: 100%;
+    top: 55%;
+}
+.aboutus .aboutus_texts {
+    position: absolute;
+    display: block;
+    width: 100%;
+    height: 18%;
+    top: 66%;
+    overflow: hidden;
+    background: url("../images/aboutus/aboutus_text_bg.png") no-repeat;
+    background-size: 100% auto;
+    background-position: top center;
 }
 .aboutus .aboutus_text_box {
     display: block;
-    position: absolute;
-    background: rgba(0,0,0,0);
-    width: 64%;
-    height: 10%;
-    bottom: 21%;
-    left: 50%;
-    margin-left: -32%;
+    width: 70%;
+    height: 62%;
+    margin: 7% auto;
     overflow: hidden;
 }
 .aboutus .aboutus_text_box ul {
@@ -280,6 +288,13 @@
 .aboutus .aboutus_text_box img.aboutus_text {
     display: inherit;
     width: 100%;
+}
+.aboutus img.icon_home {
+    position: absolute;
+    width: 26.93%;
+    top: 85.5%;
+    left: 50%;
+    margin-left: -13.465%;
 }
 
 /********************************chapter********************************/
