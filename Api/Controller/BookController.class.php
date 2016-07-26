@@ -15,6 +15,14 @@ class BookController extends CommonController
 
     public function index(){}
 
+    //获取bookid
+    private function _getBookid()
+    {
+        $bookid = mRequest('bookid');
+
+        return $bookid;
+    }
+
     //章节列表
     public function chapterlist()
     {
