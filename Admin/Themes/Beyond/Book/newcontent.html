@@ -1,0 +1,129 @@
+{include file="Common/head.html"}
+    <!-- Page Header -->
+    <div class="page-header position-relative page-header-fixed">
+        <div class="header-title">
+            <h1>宝典管理</h1>
+        </div>
+        <!--Header Buttons-->
+        <div class="header-buttons">
+            <a class="sidebar-toggler" href="#">
+                <i class="fa fa-arrows-h"></i>
+            </a>
+            <a class="refresh" id="refresh-toggler" href="#">
+                <i class="glyphicon glyphicon-refresh"></i>
+            </a>
+            <a class="fullscreen" id="fullscreen-toggler" href="#">
+                <i class="glyphicon glyphicon-fullscreen"></i>
+            </a>
+        </div>
+        <!--Header Buttons End-->
+    </div>
+    <!-- /Page Header -->
+
+    <!-- Page Body -->
+    <div class="page-body">
+        <div class="row">
+            <div class="col-lg-12 col-sm-12 col-xs-12">
+                <h5 class="row-title before-sky"><i class="glyphicon glyphicon-plane sky"></i>编辑内容</h5>
+                <div class="oplinks">
+                    <a href="{$ANY.__APP__}?s=Book/content&chapterid={$chapterinfo.chapterid}" class="btn btn-sky">返回宝典内容</a>
+                </div>
+                <div class="widget">
+                    <div class="widget-header bordered-bottom bordered-sky">
+                        <span class="widget-caption">宝典内容信息表单</span>
+                    </div>
+                    <div class="widget-body">
+                        <div id="horizontal-form">
+                            <form name="contentform" method="post" action="{$ANY.__APP__}?s=Book/newcontentsave" class="form-horizontal" role="form">
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label no-padding-right">宝典名称：</label>
+                                    <div class="col-sm-10">
+                                        <label class="control-label">{$bookinfo.booktitle}</label>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label no-padding-right">宝典目录：</label>
+                                    <div class="col-sm-10">
+                                        <select name="chapterid" class="select2el" style="width:100%;">
+                                            {foreach $chapterlist as $chapter}
+                                            <option value="{$chapter.chapterid}" {if $chapterinfo.chapterid==$chapter.chapterid}selected{/if}>{$chapter.chaptertitle}</option>
+                                            {/foreach}
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label no-padding-right">内容标题：</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" class="form-control" name="title" value="" placeholder="">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label no-padding-right">内容标题图标：</label>
+                                    <div class="col-sm-10">
+                                        <input type="hidden" name="titleicon" value="">
+                                        <input id="titleiconfile" type="file" name="titleiconfile" placeholder="请上传内容标题图标" class="file-loading">
+                                        <p class="help-block darkorange m-b-5">*500K以下 选择后请先上传</p>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label no-padding-right">内容标题图标（选中）：</label>
+                                    <div class="col-sm-10">
+                                        <input type="hidden" name="titleiconhover" value="">
+                                        <input id="titleiconhoverfile" type="file" name="titleiconhoverfile" placeholder="请上传内容标题图标（选中）" class="file-loading">
+                                        <p class="help-block darkorange m-b-5">*500K以下 选择后请先上传</p>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label no-padding-right">宝典内容：</label>
+                                    <div class="col-sm-10">
+                                        <textarea id="ueditor" name="content" style="width: 100%; height: 500px;"></textarea>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-sm-offset-2 col-sm-10">
+                                        <button type="submit" class="btn btn-sky">保存</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<link href="{$SERVER.HOST.JS_SERVER}Themes/Beyond/Assets/plugins/bootstrap-fileinput/css/fileinput.min.css" rel="stylesheet" />
+<script src="{$SERVER.HOST.JS_SERVER}Themes/Beyond/Assets/plugins/bootstrap-fileinput/js/fileinput.min.js"></script>
+<script src="{$SERVER.HOST.JS_SERVER}Themes/Beyond/Assets/plugins/bootstrap-fileinput/js/fileinput_locale_zh.js"></script>
+<script src="{$SERVER.HOST.JS_SERVER}Themes/Beyond/Assets/js/class/bootstrap-fileinput.class.js"></script>
+<script>
+$(function (){
+    var BootstrapFileInputClassObj = new BootstrapFileInputClass();
+    //目录图标
+    BootstrapFileInputClassObj.Init("titleicon", JS_APP+"?s=Book/titleiconupload");
+    //目录页面背景图
+    BootstrapFileInputClassObj.Init("titleiconhover", JS_APP+"?s=Book/titleiconhoverupload");
+})
+</script>
+
+<!-- ueditor -->
+<script src="{$SERVER.HOST.PUBLIC_SERVER}plugin/ueditor-1.4.3/ueditor.config.js"></script>
+<script src="{$SERVER.HOST.PUBLIC_SERVER}plugin/ueditor-1.4.3/ueditor.all.min.js"></script>
+<script src="{$SERVER.HOST.PUBLIC_SERVER}plugin/ueditor-1.4.3/lang/zh-cn/zh-cn.js"></script>
+<script type="text/javascript">
+$(function (){
+    //初始化UEditor
+    UE.getEditor('ueditor');
+
+    //form提交
+    $("form[name=contentform]").submit(function (){
+        var url = $(this).attr('action');
+        var postdata = $(this).serialize();
+        $.post(url, postdata, function (data){
+            ajaxCallback(data);
+        }, 'json');
+        return false;
+    });
+})
+</script>
+{include file="Common/foot.html"}

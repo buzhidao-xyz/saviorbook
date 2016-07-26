@@ -25,20 +25,29 @@
         <div class="row">
             <div class="col-lg-12 col-sm-12 col-xs-12">
                 <h5 class="row-title before-sky"><i class="glyphicon glyphicon-plane sky"></i>编辑内容</h5>
+                <div class="oplinks">
+                    <a href="{$ANY.__APP__}?s=Book/content&chapterid={$chapterinfo.chapterid}" class="btn btn-sky">返回宝典内容</a>
+                </div>
                 <div class="widget">
                     <div class="widget-header bordered-bottom bordered-sky">
                         <span class="widget-caption">宝典内容信息表单</span>
                     </div>
                     <div class="widget-body">
                         <div id="horizontal-form">
-                            <form name="chapterform" method="post" action="{$ANY.__APP__}?s=Book/editchaptersave" class="form-horizontal" role="form">
-                                <input type="hidden" name="chapterid" value="{$chapterinfo.chapterid}">
+                            <form name="contentform" method="post" action="{$ANY.__APP__}?s=Book/editcontentsave" class="form-horizontal" role="form">
+                                <input type="hidden" name="contentid" value="{$contentinfo.contentid}">
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label no-padding-right">宝典名称：</label>
+                                    <div class="col-sm-10">
+                                        <label class="control-label">{$bookinfo.booktitle}</label>
+                                    </div>
+                                </div>
                                 <div class="form-group">
                                     <label class="col-sm-2 control-label no-padding-right">宝典目录：</label>
                                     <div class="col-sm-10">
                                         <select name="chapterid" class="select2el" style="width:100%;">
                                             {foreach $chapterlist as $chapter}
-                                            <option value="{$chapter.chapterid}" {if $bookinfo.chapterid==$chapter.chapterid}selected{/if}>{$chapter.chaptertitle}</option>
+                                            <option value="{$chapter.chapterid}" {if $chapterinfo.chapterid==$chapter.chapterid}selected{/if}>{$chapter.chaptertitle}</option>
                                             {/foreach}
                                         </select>
                                     </div>
@@ -50,36 +59,31 @@
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label class="col-sm-2 control-label no-padding-right">目录图标：</label>
+                                    <label class="col-sm-2 control-label no-padding-right">内容标题图标：</label>
                                     <div class="col-sm-10">
-                                        {if $chapterinfo.chaptericon}
-                                        <p><img src="{$SERVER.HOST.HTTP_HOST}{$chapterinfo.chaptericon}" class="img-responsive" style="width: 300px;"></p>
+                                        {if $contentinfo.titleicon}
+                                        <p><img src="{$SERVER.HOST.HTTP_HOST}{$contentinfo.titleicon}" class="img-responsive" style="width: 150px;"></p>
                                         {/if}
-                                        <input type="hidden" name="chaptericon" value="{$chapterinfo.chaptericon}">
-                                        <input id="chaptericonfile" type="file" name="chaptericonfile" placeholder="请上传目录图标" class="file-loading">
+                                        <input type="hidden" name="titleicon" value="{$contentinfo.titleicon}">
+                                        <input id="titleiconfile" type="file" name="titleiconfile" placeholder="请上传内容标题图标" class="file-loading">
                                         <p class="help-block darkorange m-b-5">*500K以下 选择后请先上传</p>
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label class="col-sm-2 control-label no-padding-right">目录页面背景图：</label>
+                                    <label class="col-sm-2 control-label no-padding-right">内容标题图标（选中）：</label>
                                     <div class="col-sm-10">
-                                        {if $chapterinfo.chapterbg}
-                                        <p><img src="{$SERVER.HOST.HTTP_HOST}{$chapterinfo.chapterbg}" class="img-responsive" style="width: 300px;"></p>
+                                        {if $contentinfo.titleiconhover}
+                                        <p><img src="{$SERVER.HOST.HTTP_HOST}{$contentinfo.titleiconhover}" class="img-responsive" style="width: 150px;"></p>
                                         {/if}
-                                        <input type="hidden" name="chapterbg" value="{$chapterinfo.chapterbg}">
-                                        <input id="chapterbgfile" type="file" name="chapterbgfile" placeholder="请上传目录页面背景图" class="file-loading">
+                                        <input type="hidden" name="titleiconhover" value="{$contentinfo.titleiconhover}">
+                                        <input id="titleiconhoverfile" type="file" name="titleiconhoverfile" placeholder="请上传内容标题图标（选中）" class="file-loading">
                                         <p class="help-block darkorange m-b-5">*500K以下 选择后请先上传</p>
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label class="col-sm-2 control-label no-padding-right">目录内容背景图：</label>
+                                    <label class="col-sm-2 control-label no-padding-right">宝典内容：</label>
                                     <div class="col-sm-10">
-                                        {if $chapterinfo.contentbg}
-                                        <p style="background: #E1E1E1;"><img src="{$SERVER.HOST.HTTP_HOST}{$chapterinfo.contentbg}" class="img-responsive" style="width: 300px;"></p>
-                                        {/if}
-                                        <input type="hidden" name="contentbg" value="{$chapterinfo.contentbg}">
-                                        <input id="contentbgfile" type="file" name="contentbgfile" placeholder="请上传目录内容背景图" class="file-loading">
-                                        <p class="help-block darkorange m-b-5">*500K以下 选择后请先上传</p>
+                                        <textarea id="ueditor" name="content" style="width: 100%; height: 500px;">{$contentinfo.content}</textarea>
                                     </div>
                                 </div>
                                 <div class="form-group">
@@ -103,18 +107,23 @@
 $(function (){
     var BootstrapFileInputClassObj = new BootstrapFileInputClass();
     //目录图标
-    BootstrapFileInputClassObj.Init("chaptericon", JS_APP+"?s=Book/chaptericonupload");
+    BootstrapFileInputClassObj.Init("titleicon", JS_APP+"?s=Book/titleiconupload");
     //目录页面背景图
-    BootstrapFileInputClassObj.Init("chapterbg", JS_APP+"?s=Book/chapterbgupload");
-    //目录内容背景图
-    BootstrapFileInputClassObj.Init("contentbg", JS_APP+"?s=Book/contentbgupload");
+    BootstrapFileInputClassObj.Init("titleiconhover", JS_APP+"?s=Book/titleiconhoverupload");
 })
 </script>
 
+<!-- ueditor -->
+<script src="{$SERVER.HOST.PUBLIC_SERVER}plugin/ueditor-1.4.3/ueditor.config.js"></script>
+<script src="{$SERVER.HOST.PUBLIC_SERVER}plugin/ueditor-1.4.3/ueditor.all.min.js"></script>
+<script src="{$SERVER.HOST.PUBLIC_SERVER}plugin/ueditor-1.4.3/lang/zh-cn/zh-cn.js"></script>
 <script type="text/javascript">
 $(function (){
+    //初始化UEditor
+    UE.getEditor('ueditor');
+
     //form提交
-    $("form[name=chapterform]").submit(function (){
+    $("form[name=contentform]").submit(function (){
         var url = $(this).attr('action');
         var postdata = $(this).serialize();
         $.post(url, postdata, function (data){

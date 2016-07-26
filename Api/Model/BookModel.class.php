@@ -1,13 +1,13 @@
 <?php
 /**
- * 员工模型
+ * Book模型
  * buzhidao
- * 2016-04-04
+ * 2016-07-21
  */
 
 namespace Api\Model;
 
-class UserModel extends CommonModel
+class BookModel extends CommonModel
 {
     public function __construct()
     {
