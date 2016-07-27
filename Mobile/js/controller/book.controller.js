@@ -97,7 +97,7 @@ define(["require", "app", "commoncontroller"], function ($require, $app){
 				}
 
 				setTimeout(function () {
-					var liHeight = parseInt($('.aboutus_text_box').find("img.aboutus_text:eq(0)").css("height"));
+					var liHeight = parseInt($('.aboutus_text_box').find("img.aboutus_text:eq(0)").css("height"))+10;
 					$('.aboutus_text_box').myScroll({
 						speed: 50, //数值越大，速度越慢
 						rowHeight: liHeight //li的高度

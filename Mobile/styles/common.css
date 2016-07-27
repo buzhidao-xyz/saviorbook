@@ -288,6 +288,7 @@
 .aboutus .aboutus_text_box img.aboutus_text {
     display: inherit;
     width: 100%;
+    margin-top: 10px;
 }
 .aboutus img.icon_home {
     position: absolute;
