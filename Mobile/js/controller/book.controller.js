@@ -22,10 +22,14 @@ define(["require", "app", "commoncontroller"], function ($require, $app){
 				$("#ChapterBox").removeClass('pt-page-moveToTop').addClass('pt-page-moveFromTop').show();
 
 				//service交互 - getChapterList
-				$BookService.getChapterList();
+				var params = {
+					bookid: bookid
+				}
+				$BookService.getChapterList(params);
 				//监听事件 - getChapterList.success
 				$scope.$on('getChapterList.success', function (event, d){
 					$scope.$chapterlist = $BookService.chapterlist;
+					console.log($scope.$chapterlist);
 				});
 			};
 
