@@ -19,7 +19,7 @@ requirejs(["app", "api"], function ($app, $api){
 				}).error(function (data, status){
 					$rootScope.$broadcast('apiRequest.failed');
 				});
-			}
+			},
 
 			//获取宝典内容
 			chaptercontent: {},
