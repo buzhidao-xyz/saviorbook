@@ -137,7 +137,7 @@ class BookController extends CommonController
         $Upload->maxSize  = 800*1024;
         $Upload->exts     = array('jpg', 'gif', 'png', 'jpeg');
         $Upload->rootPath = UPLOAD_PATH;
-        $Upload->savePath = 'Book/chaptericon/';
+        $Upload->savePath = 'book/chaptericon/';
         $Upload->saveName = array('uniqid', array('', true));
         $Upload->autoSub  = true;
         $Upload->subName  = array('date', 'Ym');
@@ -169,7 +169,7 @@ class BookController extends CommonController
         $Upload->maxSize  = 800*1024;
         $Upload->exts     = array('jpg', 'gif', 'png', 'jpeg');
         $Upload->rootPath = UPLOAD_PATH;
-        $Upload->savePath = 'Book/chapterbg/';
+        $Upload->savePath = 'book/chapterbg/';
         $Upload->saveName = array('uniqid', array('', true));
         $Upload->autoSub  = true;
         $Upload->subName  = array('date', 'Ym');
@@ -201,7 +201,7 @@ class BookController extends CommonController
         $Upload->maxSize  = 800*1024;
         $Upload->exts     = array('jpg', 'gif', 'png', 'jpeg');
         $Upload->rootPath = UPLOAD_PATH;
-        $Upload->savePath = 'Book/contentbg/';
+        $Upload->savePath = 'book/contentbg/';
         $Upload->saveName = array('uniqid', array('', true));
         $Upload->autoSub  = true;
         $Upload->subName  = array('date', 'Ym');
@@ -233,7 +233,7 @@ class BookController extends CommonController
         $Upload->maxSize  = 800*1024;
         $Upload->exts     = array('jpg', 'gif', 'png', 'jpeg');
         $Upload->rootPath = UPLOAD_PATH;
-        $Upload->savePath = 'Book/titleicon/';
+        $Upload->savePath = 'book/titleicon/';
         $Upload->saveName = array('uniqid', array('', true));
         $Upload->autoSub  = true;
         $Upload->subName  = array('date', 'Ym');
@@ -265,7 +265,7 @@ class BookController extends CommonController
         $Upload->maxSize  = 800*1024;
         $Upload->exts     = array('jpg', 'gif', 'png', 'jpeg');
         $Upload->rootPath = UPLOAD_PATH;
-        $Upload->savePath = 'Book/titleiconhover/';
+        $Upload->savePath = 'book/titleiconhover/';
         $Upload->saveName = array('uniqid', array('', true));
         $Upload->autoSub  = true;
         $Upload->subName  = array('date', 'Ym');
