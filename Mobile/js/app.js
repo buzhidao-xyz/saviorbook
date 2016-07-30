@@ -8,23 +8,23 @@ define(["require", "jquery", "angular", "angular-route"], function (require, jqu
 		//router路由
 		$routeProvider
 		.when('/', {
-			templateUrl: 'views/main.html',
+			templateUrl: 'Mobile/views/main.html',
 			controller: 'BookController'
 		})
 		.when('/book', {
-			templateUrl: 'views/book.html',
+			templateUrl: 'Mobile/views/book.html',
 			controller: 'BookController'
 		})
 		.when('/book/bookid/:bookid', {
-			templateUrl: 'views/book.html',
+			templateUrl: 'Mobile/views/book.html',
 			controller: 'BookController'
 		})
 		.when('/chapter/bookid/:bookid/chapterid/:chapterid', {
-			templateUrl: 'views/chapter.html',
+			templateUrl: 'Mobile/views/chapter.html',
 			controller: 'BookController'
 		})
 		.when('/aboutus', {
-			templateUrl: 'views/aboutus.html',
+			templateUrl: 'Mobile/views/aboutus.html',
 			controller: 'BookController'
 		})
 		.otherwise({
