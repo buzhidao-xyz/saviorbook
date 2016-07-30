@@ -11,6 +11,7 @@ define(["require", "app", "commoncontroller"], function ($require, $app){
 		'BookService',
 		function ($scope, $controller, $route, $routeParams, $location, $BookService){
 			$scope.bookid = 0;
+			$scope.$chapterlist = {};
 
 			var CommonController = $controller('CommonController', {$scope: $scope});
 
@@ -28,8 +29,7 @@ define(["require", "app", "commoncontroller"], function ($require, $app){
 				$BookService.getChapterList(params);
 				//监听事件 - getChapterList.success
 				$scope.$on('getChapterList.success', function (event, d){
-					$scope.$chapterlist = $BookService.chapterlist;
-					console.log($scope.$chapterlist);
+					$scope.$chapterlist = $scope.apiResult($BookService.chapterlist);
 				});
 			};
 

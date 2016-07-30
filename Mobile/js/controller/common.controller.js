@@ -40,13 +40,10 @@ define(["app", "api"], function ($app, $api){
 		//统一API返回数据处理方法
 		$scope.apiResult = function (data, params) {
 			//如果status==0 成功
-			if (data.status == 0) {
+			if (data.error == 0) {
 				return data.data;
-			} else if (data.status == -4) {
-				//未登录用户
-				$location.path('/login');
 			} else {
-				$scope.alertShow($scope.errormsg);
+				$scope.alertShow($scope.msg);
 			}
 		}
 

@@ -13,7 +13,7 @@ requirejs(["app", "api"], function ($app, $api){
 					params: params,
 					data: data
 				}).success(function (data, status){
-					Service.chapterlist = [];
+					Service.chapterlist = data;
 
 					$rootScope.$broadcast('getChapterList.success');
 				}).error(function (data, status){
@@ -31,7 +31,7 @@ requirejs(["app", "api"], function ($app, $api){
 					params: params,
 					data: data
 				}).success(function (data, status){
-					Service.chaptercontent = [];
+					Service.chaptercontent = data;
 
 					$rootScope.$broadcast('getChaptercontent.success');
 				}).error(function (data, status){

@@ -45,6 +45,7 @@ class BookController extends CommonController
         if (is_array($chapterlist)&&!empty($chapterlist)) {
             foreach ($chapterlist as $chapter) {
                 $data[] = array(
+                    'bookid' => $chapter['bookid'],
                     'chapterid' => $chapter['chapterid'],
                     'chaptertitle' => $chapter['chaptertitle'],
                     'chaptericon' => ImageURL($chapter['chaptericon']),

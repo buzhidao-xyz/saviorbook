@@ -23,45 +23,9 @@
         <img src="Mobile/images/followus/followus_close.png" class="chapterbox_close" ng-click="hideChapterbox($event)">
     </div>
     <ul class="chapterlist">
-        <li>
-            <a href="#/chapter/bookid/1/chapterid/1"><img src="Mobile/images/book/chapterlist_icon_trans.png" class="icon icon_trans"></a>
-            <img src="Mobile/images/book/chapterlist_icon1.png" class="icon">
-        </li>
-        <li>
-            <a href="#/chapter/bookid/1/chapterid/2"><img src="Mobile/images/book/chapterlist_icon_trans.png" class="icon icon_trans"></a>
-            <img src="Mobile/images/book/chapterlist_icon2.png" class="icon">
-        </li>
-        <li>
-            <a href="#/chapter/bookid/1/chapterid/3"><img src="Mobile/images/book/chapterlist_icon_trans.png" class="icon icon_trans"></a>
-            <img src="Mobile/images/book/chapterlist_icon3.png" class="icon">
-        </li>
-        <li>
-            <a href="#/chapter/bookid/1/chapterid/4"><img src="Mobile/images/book/chapterlist_icon_trans.png" class="icon icon_trans"></a>
-            <img src="Mobile/images/book/chapterlist_icon4.png" class="icon">
-        </li>
-        <li>
-            <a href="#/chapter/bookid/1/chapterid/5"><img src="Mobile/images/book/chapterlist_icon_trans.png" class="icon icon_trans"></a>
-            <img src="Mobile/images/book/chapterlist_icon5.png" class="icon">
-        </li>
-        <li>
-            <a href="#/chapter/bookid/1/chapterid/1"><img src="Mobile/images/book/chapterlist_icon_trans.png" class="icon icon_trans"></a>
-            <img src="Mobile/images/book/chapterlist_icon6.png" class="icon">
-        </li>
-        <li>
-            <a href="#/chapter/bookid/1/chapterid/1"><img src="Mobile/images/book/chapterlist_icon_trans.png" class="icon icon_trans"></a>
-            <img src="Mobile/images/book/chapterlist_icon7.png" class="icon">
-        </li>
-        <li>
-            <a href="#/chapter/bookid/1/chapterid/1"><img src="Mobile/images/book/chapterlist_icon_trans.png" class="icon icon_trans"></a>
-            <img src="Mobile/images/book/chapterlist_icon8.png" class="icon">
-        </li>
-        <li>
-            <a href="#/chapter/bookid/1/chapterid/1"><img src="Mobile/images/book/chapterlist_icon_trans.png" class="icon icon_trans"></a>
-            <img src="Mobile/images/book/chapterlist_icon9.png" class="icon">
-        </li>
-        <li>
-            <a href="#/chapter/bookid/1/chapterid/1"><img src="Mobile/images/book/chapterlist_icon_trans.png" class="icon icon_trans"></a>
-            <img src="Mobile/images/book/chapterlist_icon10.png" class="icon">
+        <li ng-repeat="$chapter in $chapterlist">
+            <a href="#/chapter/bookid/{{$chapter.bookid}}/chapterid/{{$chapter.chapterid}}"><img src="Mobile/images/book/chapterlist_icon_trans.png" class="icon icon_trans"></a>
+            <img ng-src="{{$chapter.chaptericon}}" class="icon">
         </li>
     </ul>
 </div>
