@@ -63,6 +63,22 @@ define(["app", "api"], function ($app, $api){
 			$("#FollowUS").hide();
 		}
 
+		//显示分享
+		$scope.showShare = function (e) {
+			var $this = $(e.target);
+			
+			$("img.main_share_qrcode").show();
+		}
+		//隐藏分享
+		$scope.hideShare = function (e) {
+			var $this = $(e.target);
+			
+			$("img.main_share_qrcode").hide();
+		}
+		$("img.main_share_qrcode").on('click', function (){
+			$(this).hide();
+		});
+
 		//显示收藏
 		$scope.showFav = function (e) {
 			var $this = $(e.target);

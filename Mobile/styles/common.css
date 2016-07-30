@@ -102,6 +102,14 @@
     top: 40%;
     z-index: 11;
 }
+.mainbox img.main_share_qrcode {
+    display: none;
+    position: absolute;
+    width: 100%;
+    top: 0;
+    background: rgba(0,0,0,0.8);
+    z-index: 99;
+}
 .mainbox img.startread {
     display: block;
     position: absolute;
