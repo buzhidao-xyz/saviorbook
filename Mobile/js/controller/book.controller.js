@@ -8,9 +8,11 @@ define(["require", "app", "commoncontroller"], function ($require, $app){
 		'$route',
 		'$routeParams',
 		'$location',
+		'$sce',
 		'BookService',
-		function ($scope, $controller, $route, $routeParams, $location, $BookService){
+		function ($scope, $controller, $route, $routeParams, $location, $sce, $BookService){
 			$scope.bookid = 0;
+			$scope.chapterid = 0;
 			$scope.$chapterlist = {};
 
 			var CommonController = $controller('CommonController', {$scope: $scope});
@@ -32,6 +34,31 @@ define(["require", "app", "commoncontroller"], function ($require, $app){
 					$scope.$chapterlist = $scope.apiResult($BookService.chapterlist);
 				});
 			};
+
+			//获取目录内容
+			$scope.getChapterContent = function () {
+				//service交互 - getChaptercontent
+				var params = {
+					chapterid: $scope.chapterid
+				}
+				$BookService.getChaptercontent(params);
+				//监听事件 - getChaptercontent.success
+				$scope.$on('getChaptercontent.success', function (event, d){
+					$scope.$chaptercontent = $scope.apiResult($BookService.chaptercontent);
+					for (index in $scope.$chaptercontent.content) {
+						$scope.$chaptercontent.content[index].iconclass = 'show';
+						$scope.$chaptercontent.content[index].iconhoverclass = '';
+						$scope.$chaptercontent.content[index].contentclass = '';
+						if (index == 0) {
+							$scope.$chaptercontent.content[index].iconclass = '';
+							$scope.$chaptercontent.content[index].iconhoverclass = 'show';
+							$scope.$chaptercontent.content[index].contentclass = 'show';
+						}
+
+						$scope.$chaptercontent.content[index].content = $sce.trustAsHtml($scope.$chaptercontent.content[index].content);
+					}
+				});
+			}
 
 			//chapter-章节tab切换
 			$scope.showChapterContent = function (e) {
@@ -119,6 +146,9 @@ define(["require", "app", "commoncontroller"], function ($require, $app){
 					$scope.showBookChapter();
 					break;
 				case '/chapter/bookid/:bookid/chapterid/:chapterid':
+					$scope.bookid = $routeParams.bookid;
+					$scope.chapterid = $routeParams.chapterid;
+					$scope.getChapterContent();
 					break;
 				case '/aboutus':
 					$scope.aboutusTextScroll();

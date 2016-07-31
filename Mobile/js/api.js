@@ -1,6 +1,6 @@
 define([], function (){
     return {
-        host: "http://www.wanganyi.net/saviorbook/",
+        host: "http://localhost/work/saviorbook/",
         book: {
             chapterlist: {
                 m: "get",

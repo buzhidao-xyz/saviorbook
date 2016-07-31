@@ -1,7 +1,7 @@
 //appjs
-define(["require", "jquery", "angular", "angular-route"], function (require, jquery, angular){
+define(["require", "jquery", "angular", "angular-route", "angular-sanitize"], function (require, jquery, angular){
     //注册angular.module-WebApp
-	var WebApp = angular.module("WebApp", ["ngRoute"]);
+	var WebApp = angular.module("WebApp", ["ngRoute","ngSanitize"]);
 
 	//配置angularmodule
 	WebApp.config(['$routeProvider', function($routeProvider) {
