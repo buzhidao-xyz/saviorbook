@@ -55,34 +55,37 @@
                                 <div class="form-group">
                                     <label class="col-sm-2 control-label no-padding-right">目录图标：</label>
                                     <div class="col-sm-10">
+                                        <b>当前图片：</b>
                                         {if $chapterinfo.chaptericon}
                                         <p><img src="{$SERVER.HOST.HTTP_HOST}{$chapterinfo.chaptericon}" class="img-responsive" style="width: 300px;"></p>
                                         {/if}
                                         <input type="hidden" name="chaptericon" value="{$chapterinfo.chaptericon}">
                                         <input id="chaptericonfile" type="file" name="chaptericonfile" placeholder="请上传目录图标" class="file-loading">
-                                        <p class="help-block darkorange m-b-5">*500K以下 选择后请先上传</p>
+                                        <p class="help-block darkorange m-b-5">*尺寸：1278*140，500K以下 选择后请先上传</p>
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label class="col-sm-2 control-label no-padding-right">目录页面背景图：</label>
                                     <div class="col-sm-10">
+                                        <b>当前图片：</b>
                                         {if $chapterinfo.chapterbg}
                                         <p><img src="{$SERVER.HOST.HTTP_HOST}{$chapterinfo.chapterbg}" class="img-responsive" style="width: 300px;"></p>
                                         {/if}
                                         <input type="hidden" name="chapterbg" value="{$chapterinfo.chapterbg}">
                                         <input id="chapterbgfile" type="file" name="chapterbgfile" placeholder="请上传目录页面背景图" class="file-loading">
-                                        <p class="help-block darkorange m-b-5">*500K以下 选择后请先上传</p>
+                                        <p class="help-block darkorange m-b-5">*尺寸：1080*1924，500K以下 选择后请先上传</p>
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label class="col-sm-2 control-label no-padding-right">目录内容背景图：</label>
                                     <div class="col-sm-10">
+                                        <b>当前图片：</b>
                                         {if $chapterinfo.contentbg}
-                                        <p style="background: #E1E1E1;"><img src="{$SERVER.HOST.HTTP_HOST}{$chapterinfo.contentbg}" class="img-responsive" style="width: 300px;"></p>
+                                        <p style="background: #F1F1F1;"><img src="{$SERVER.HOST.HTTP_HOST}{$chapterinfo.contentbg}" class="img-responsive" style="width: 300px;"></p>
                                         {/if}
                                         <input type="hidden" name="contentbg" value="{$chapterinfo.contentbg}">
                                         <input id="contentbgfile" type="file" name="contentbgfile" placeholder="请上传目录内容背景图" class="file-loading">
-                                        <p class="help-block darkorange m-b-5">*500K以下 选择后请先上传</p>
+                                        <p class="help-block darkorange m-b-5">*尺寸：1080*1620，500K以下 选择后请先上传</p>
                                     </div>
                                 </div>
                                 <div class="form-group">

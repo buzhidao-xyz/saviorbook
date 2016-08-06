@@ -61,23 +61,25 @@
                                 <div class="form-group">
                                     <label class="col-sm-2 control-label no-padding-right">内容标题图标：</label>
                                     <div class="col-sm-10">
+                                        <b>当前图片：</b>
                                         {if $contentinfo.titleicon}
                                         <p><img src="{$SERVER.HOST.HTTP_HOST}{$contentinfo.titleicon}" class="img-responsive" style="width: 150px;"></p>
                                         {/if}
                                         <input type="hidden" name="titleicon" value="{$contentinfo.titleicon}">
                                         <input id="titleiconfile" type="file" name="titleiconfile" placeholder="请上传内容标题图标" class="file-loading">
-                                        <p class="help-block darkorange m-b-5">*500K以下 选择后请先上传</p>
+                                        <p class="help-block darkorange m-b-5">*尺寸：379*123，500K以下 选择后请先上传</p>
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label class="col-sm-2 control-label no-padding-right">内容标题图标（选中）：</label>
                                     <div class="col-sm-10">
+                                        <b>当前图片：</b>
                                         {if $contentinfo.titleiconhover}
                                         <p><img src="{$SERVER.HOST.HTTP_HOST}{$contentinfo.titleiconhover}" class="img-responsive" style="width: 150px;"></p>
                                         {/if}
                                         <input type="hidden" name="titleiconhover" value="{$contentinfo.titleiconhover}">
                                         <input id="titleiconhoverfile" type="file" name="titleiconhoverfile" placeholder="请上传内容标题图标（选中）" class="file-loading">
-                                        <p class="help-block darkorange m-b-5">*500K以下 选择后请先上传</p>
+                                        <p class="help-block darkorange m-b-5">*尺寸：379*123，500K以下 选择后请先上传</p>
                                     </div>
                                 </div>
                                 <div class="form-group">
