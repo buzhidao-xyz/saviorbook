@@ -1,10 +1,10 @@
 <div class="page chaptercontainer" style="background: url({{$chaptercontent.chapter.chapterbg}}); background-size: 100% 100%;">
     <div class="chapter_content_bg" style="background: url({{$chaptercontent.chapter.contentbg}}) no-repeat; background-size: 100% auto; background-position: center center;"></div>
-    <div id="FavBox" class="favbox">
+    <div id="FavBox" class="favbox" ng-click="hideFav($event)">
         <img src="Mobile/images/followus/followus_close.png" class="favbox_close" ng-click="hideFav($event)">
         <img src="Mobile/images/book/book_fav_bg.png" class="favbox_text">
     </div>
-    <a href="#/book/bookid/1" class="icon_section"></a>
+    <a href="#/book/bookid/{{bookid}}" class="icon_section"></a>
 	<div class="chaptercontent">
         <div id="ContentBox" class="contentbox">
             <div class="content_tab">
@@ -16,12 +16,12 @@
             <div class="content_body">
                 <div class="content_body_item {{$content.contentclass}}" ng-repeat="$content in $chaptercontent.content">
                     <div ng-bind-html="$content.content"></div>
-                    <div style="width: 100%; height: 20px; line-height: 20px;"></div>
+                    <div style="width: 100%; height: 10px; line-height: 10px;"></div>
                 </div>
             </div>
         </div>
 	</div>
 	<img src="Mobile/images/book/icon_fav.png" class="icon_fav" ng-click="showFav($event)">
-	<a href="#/"><img src="Mobile/images/chapter/icon_home.png" class="icon_home"></a>
+	<a href="#/book"><img src="Mobile/images/chapter/icon_home.png" class="icon_home"></a>
     <img src="Mobile/images/copyright_text_yellow.png" class="notice">
 </div>
