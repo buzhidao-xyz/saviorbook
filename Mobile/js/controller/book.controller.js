@@ -15,6 +15,8 @@ define(["require", "app", "commoncontroller"], function ($require, $app){
 			$scope.chapterid = 0;
 			$scope.$chapterlist = {};
 
+			$scope.IntervalId;
+
 			var CommonController = $controller('CommonController', {$scope: $scope});
 
 			//book-显示章节列表
@@ -23,6 +25,8 @@ define(["require", "app", "commoncontroller"], function ($require, $app){
 				if (!bookid) return false;
 
 				$("#ChapterBox").removeClass('pt-page-moveToTop').addClass('pt-page-moveFromTop').show();
+				//显示不同目录的bustimg
+				$("#ChapterBox").find("img.chapterbox_bust").attr("src", "Mobile/images/book/bust"+bookid+".png");
 
 				//service交互 - getChapterList
 				var params = {
@@ -82,53 +86,54 @@ define(["require", "app", "commoncontroller"], function ($require, $app){
 				$.fn.myScroll = function(options){
 					var flag = 1;
 					var defaults = {
-						speed: 40,
+						speed: 50,
 						rowHeight: 24
 					};
 				
-					var opts = $.extend({}, defaults, options),intId = [];
+					clearInterval($scope.IntervalId);
+
+					var opts = $.extend({}, defaults, options);
 
 					function marquee(obj, step){
 						obj.find("ul").animate({
 							marginTop: '-=1'
-						},0,function(){
+						},1,function(){
 							var s = Math.abs(parseInt($(this).css("margin-top")));
-							if(s >= step){
+							if (s >= step) {
 								$(this).find("li").slice(0, 1).appendTo($(this));
 								$(this).css("margin-top", 0);
 							}
 						});
 					}
-					this.each(function(i){
-						var sh = opts["rowHeight"],speed = opts["speed"],_this = $(this);
-						intId[i] = setInterval(function(){
-							if(_this.find("ul").height()<=_this.height()){
-								clearInterval(intId[i]);
-							}else{
-								marquee(_this, sh);
-							}
-						}, speed);
+					
+					var sh = opts["rowHeight"],speed = opts["speed"],_this = $(this);
+					$scope.IntervalId = setInterval(function(){
+						if (_this.find("ul").height()<=_this.height()) {
+							clearInterval($scope.IntervalId);
+						} else {
+							marquee(_this, sh);
+						}
+					}, 50);
 
-						_this.click(function(){
-							if (flag) {
-								flag = 0;
-								clearInterval(intId[i]);
-							} else {
-								flag = 1;
-								intId[i] = setInterval(function(){
-									if(_this.find("ul").height()<=_this.height()){
-										clearInterval(intId[i]);
-									}else{
-										marquee(_this, sh);
-									}
-								}, speed);
-							}
-						});
+					_this.click(function(){
+						if (flag) {
+							flag = 0;
+							clearInterval($scope.IntervalId);
+						} else {
+							flag = 1;
+							$scope.IntervalId = setInterval(function(){
+								if (_this.find("ul").height()<=_this.height()) {
+									clearInterval($scope.IntervalId);
+								} else {
+									marquee(_this, sh);
+								}
+							}, 50);
+						}
 					});
 				}
 
 				setTimeout(function () {
-					var liHeight = parseInt($('.aboutus_text_box').find("img.aboutus_text:eq(0)").css("height"))+10;
+					var liHeight = $('.aboutus_text_box').find("img.aboutus_text").height()+10;
 					$('.aboutus_text_box').myScroll({
 						speed: 50, //数值越大，速度越慢
 						rowHeight: liHeight //li的高度
