@@ -257,7 +257,7 @@
 .aboutus .followus .followus_qrcode {
     display: block;
     margin: 0 auto;
-    width: 79%;
+    width: 65%;
 }
 .aboutus .aboutus_text_s {
     display: block;
@@ -269,8 +269,8 @@
     position: absolute;
     display: block;
     width: 95%;
-    height: 29%;
-    top: 55.5%;
+    height: 31%;
+    top: 52%;
     margin-left: 2.5%;
     overflow: hidden;
     background: url("../images/aboutus/aboutus_text_bg.png") no-repeat;
@@ -280,7 +280,7 @@
 .aboutus .aboutus_text_box {
     display: block;
     width: 67%;
-    height: 70%;
+    height: 68%;
     margin: 7% auto;
     overflow: hidden;
 }
