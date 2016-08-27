@@ -24,7 +24,7 @@
     left: 0;
     right: 0;
     bottom: 0;
-    z-index: 10;
+    z-index: 20;
     background: rgba(0,0,0,0.8);
 }
 .favbox .favbox_text {
@@ -32,7 +32,7 @@
     position: absolute;
     width: 100%;
     height: auto;
-    top: 25%;
+    /*top: 25%;*/
     z-index: 1;
 }
 .favbox .favbox_close {
@@ -247,7 +247,7 @@
     display: block;
     position: absolute;
     width: 57.5%;
-    height: 53%;
+    height: auto;
     background-size: 100% 100%;
     left: 50%;
     margin-left: -28.75%;
@@ -257,8 +257,7 @@
 .aboutus .followus .followus_qrcode {
     display: block;
     margin: 0 auto;
-    width: 73%;
-    height: 73%;
+    width: 79%;
 }
 .aboutus .aboutus_text_s {
     display: block;
@@ -269,9 +268,10 @@
 .aboutus .aboutus_texts {
     position: absolute;
     display: block;
-    width: 100%;
-    height: 18%;
-    top: 66%;
+    width: 95%;
+    height: 29%;
+    top: 55.5%;
+    margin-left: 2.5%;
     overflow: hidden;
     background: url("../images/aboutus/aboutus_text_bg.png") no-repeat;
     background-size: 100% auto;
@@ -279,8 +279,8 @@
 }
 .aboutus .aboutus_text_box {
     display: block;
-    width: 63.5%;
-    height: 60%;
+    width: 67%;
+    height: 70%;
     margin: 7% auto;
     overflow: hidden;
 }

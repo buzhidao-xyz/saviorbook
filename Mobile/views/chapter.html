@@ -1,7 +1,8 @@
 <div class="page chaptercontainer" style="background: url({{$chaptercontent.chapter.chapterbg}}); background-size: 100% 100%;">
+    <a href="#/" class="logolink"></a>
     <div class="chapter_content_bg" style="background: url({{$chaptercontent.chapter.contentbg}}) no-repeat; background-size: 100% auto; background-position: center center;"></div>
     <div id="FavBox" class="favbox" ng-click="hideFav($event)">
-        <img src="Mobile/images/followus/followus_close.png" class="favbox_close" ng-click="hideFav($event)">
+        <!-- <img src="Mobile/images/followus/followus_close.png" class="favbox_close" ng-click="hideFav($event)"> -->
         <img src="Mobile/images/book/book_fav_bg.png" class="favbox_text">
     </div>
     <a href="#/book/bookid/{{bookid}}" class="icon_section"></a>
@@ -25,3 +26,15 @@
 	<a href="#/book"><img src="Mobile/images/chapter/icon_home.png" class="icon_home"></a>
     <img src="Mobile/images/copyright_text_yellow.png" class="notice">
 </div>
+<style type="text/css" media="screen">
+.logolink {
+    display: block;
+    position: absolute;
+    width: 85%;
+    height: 8%;
+    top: 8.5%;
+    left: 7.5%;
+    /*background: rgba(0,0,0, 0.5);*/
+    background: none;
+}
+</style>

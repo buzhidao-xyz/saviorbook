@@ -1,7 +1,8 @@
 <div class="page bookbox">
     <div class="bookbox_content_bg"></div>
+    <a href="#/" class="logolink"></a>
     <div id="FavBox" class="favbox" ng-click="hideFav($event)">
-        <img src="Mobile/images/followus/followus_close.png" class="favbox_close" ng-click="hideFav($event)">
+        <!-- <img src="Mobile/images/followus/followus_close.png" class="favbox_close" ng-click="hideFav($event)"> -->
         <img src="Mobile/images/book/book_fav_bg.png" class="favbox_text">
     </div>
     <ul class="book_links">
@@ -18,7 +19,7 @@
 </div>
 <div id="ChapterBox" class="page chapterbox">
     <div class="chapterhead">
-        <img src="Mobile/images/book/icon_fav_b.png" class="chapterbox_fav">
+        <img src="Mobile/images/book/icon_fav_b.png" class="chapterbox_fav" ng-click="showFav($event)">
         <img src="Mobile/images/book/bust.png" class="chapterbox_bust">
         <img src="Mobile/images/followus/followus_close.png" class="chapterbox_close" ng-click="hideChapterbox($event)">
     </div>
@@ -29,3 +30,15 @@
         </li>
     </ul>
 </div>
+<style type="text/css" media="screen">
+.logolink {
+    display: block;
+    position: absolute;
+    width: 85%;
+    height: 8%;
+    top: 10%;
+    left: 7.5%;
+    /*background: rgba(0,0,0, 0.5);*/
+    background: none;
+}
+</style>
