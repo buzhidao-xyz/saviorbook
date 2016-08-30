@@ -86,7 +86,7 @@ define(["require", "app", "commoncontroller"], function ($require, $app){
 				$.fn.myScroll = function(options){
 					var flag = 1;
 					var defaults = {
-						speed: 1,
+						speed: 50,
 						rowHeight: 481.41
 					};
 				
@@ -137,7 +137,7 @@ define(["require", "app", "commoncontroller"], function ($require, $app){
 						var liHeight = $('.aboutus_text_box').find("img.aboutus_text").height()+10;
 						if (liHeight < 10) liHeight = 481.41;
 						$('.aboutus_text_box').myScroll({
-							speed: 1, //数值越大，速度越慢
+							speed: 50, //数值越大，速度越慢
 							rowHeight: liHeight //li的高度
 						});
 					}, 100);
