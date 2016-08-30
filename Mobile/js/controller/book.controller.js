@@ -86,8 +86,8 @@ define(["require", "app", "commoncontroller"], function ($require, $app){
 				$.fn.myScroll = function(options){
 					var flag = 1;
 					var defaults = {
-						speed: 70,
-						rowHeight: 24
+						speed: 60,
+						rowHeight: 471.41
 					};
 				
 					clearInterval($scope.IntervalId);
@@ -136,7 +136,7 @@ define(["require", "app", "commoncontroller"], function ($require, $app){
 					setTimeout(function (){
 						var liHeight = $('.aboutus_text_box').find("img.aboutus_text").height()+10;
 						$('.aboutus_text_box').myScroll({
-							speed: 70, //数值越大，速度越慢
+							speed: 60, //数值越大，速度越慢
 							rowHeight: liHeight //li的高度
 						});
 					}, 100);
