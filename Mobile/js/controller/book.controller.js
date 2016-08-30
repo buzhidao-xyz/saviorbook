@@ -86,7 +86,7 @@ define(["require", "app", "commoncontroller"], function ($require, $app){
 				$.fn.myScroll = function(options){
 					var flag = 1;
 					var defaults = {
-						speed: 50,
+						speed: 40,
 						rowHeight: 24
 					};
 				
@@ -97,7 +97,7 @@ define(["require", "app", "commoncontroller"], function ($require, $app){
 					function marquee(obj, step){
 						obj.find("ul").animate({
 							marginTop: '-=1'
-						},1,function(){
+						},0,function(){
 							var s = Math.abs(parseInt($(this).css("margin-top")));
 							if (s >= step) {
 								$(this).find("li").slice(0, 1).appendTo($(this));
@@ -113,7 +113,7 @@ define(["require", "app", "commoncontroller"], function ($require, $app){
 						} else {
 							marquee(_this, sh);
 						}
-					}, 50);
+					}, speed);
 
 					_this.click(function(){
 						if (flag) {
@@ -127,7 +127,7 @@ define(["require", "app", "commoncontroller"], function ($require, $app){
 								} else {
 									marquee(_this, sh);
 								}
-							}, 50);
+							}, speed);
 						}
 					});
 				}
@@ -136,7 +136,7 @@ define(["require", "app", "commoncontroller"], function ($require, $app){
 					setTimeout(function (){
 						var liHeight = $('.aboutus_text_box').find("img.aboutus_text").height()+10;
 						$('.aboutus_text_box').myScroll({
-							speed: 50, //数值越大，速度越慢
+							speed: 40, //数值越大，速度越慢
 							rowHeight: liHeight //li的高度
 						});
 					}, 100);
