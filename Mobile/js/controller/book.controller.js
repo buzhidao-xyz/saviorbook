@@ -86,7 +86,7 @@ define(["require", "app", "commoncontroller"], function ($require, $app){
 				$.fn.myScroll = function(options){
 					var flag = 1;
 					var defaults = {
-						speed: 50,
+						speed: 70,
 						rowHeight: 471.41
 					};
 				
@@ -97,7 +97,7 @@ define(["require", "app", "commoncontroller"], function ($require, $app){
 					function marquee(obj, step){
 						obj.find("ul").animate({
 							marginTop: '-=1'
-						},50,function(){
+						},70,function(){
 							var s = Math.abs(parseInt($(this).css("margin-top")));
 							if (s >= step) {
 								$(this).find("li").slice(0, 1).appendTo($(this));
@@ -136,7 +136,7 @@ define(["require", "app", "commoncontroller"], function ($require, $app){
 					setTimeout(function (){
 						var liHeight = $('.aboutus_text_box').find("img.aboutus_text").height()+10;
 						$('.aboutus_text_box').myScroll({
-							speed: 50, //数值越大，速度越慢
+							speed: 70, //数值越大，速度越慢
 							rowHeight: liHeight //li的高度
 						});
 					}, 100);
